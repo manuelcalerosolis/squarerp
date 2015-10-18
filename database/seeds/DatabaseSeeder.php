@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\User;
 
+define('recordsNumber', 50);
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,8 +20,14 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $this->call(UserTableSeeder::class);
-        $this->call(EntityTableSeeder::class);
+        DB::table('users')->truncate();
+        factory(App\User::class, recordsNumber)->create();
+
+        DB::table('entities')->truncate();
+        factory(App\Entity::class, recordsNumber)->create();
+
+        DB::table('address')->truncate();
+        factory(App\Addres::class, recordsNumber)->create();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

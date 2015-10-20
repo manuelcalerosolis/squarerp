@@ -17,7 +17,7 @@ $factory->define(App\Entity::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(App\Addres::class, function(Faker\Generator $faker){
+$factory->define(App\Address::class, function(Faker\Generator $faker){
     return[
         'company' => $faker->company,
         'first_name' => $faker->firstName,

@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
         DB::table('entities')->truncate();
         factory(App\Entity::class, recordsNumber)->create();
 
-        DB::table('address')->truncate();
-        factory(App\Addres::class, recordsNumber)->create();
+        DB::table('addresses')->truncate();
+        factory(App\Address::class, recordsNumber)->create();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

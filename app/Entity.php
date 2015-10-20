@@ -30,4 +30,9 @@ class Entity extends Model implements AuthenticatableContract,
      */
     protected $fillable = ['company', 'first_name', 'last_name', 'active'];
 
+    public function addresses()
+    {
+        return $this->belongsToMany('App\Address', 'entities_addresses' );
+    }
+    
 }

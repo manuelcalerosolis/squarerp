@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('address', function () {
-    $entity = App\Entity::find(1);
+    $entity = App\Models\Entity::find(1);
     return view('address',['entity' => $entity]);
 
 //    echo $entity->company;

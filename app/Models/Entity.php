@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Address extends Model implements AuthenticatableContract,
+class Entity extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
 {
@@ -21,13 +21,18 @@ class Address extends Model implements AuthenticatableContract,
      *
      * @var string
      */
-    protected $table = 'addresses';
+    protected $table = 'entities';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['company', 'first_name', 'last_name', 'address1', 'address2', 'postal_code', 'city', 'other', 'phone', 'phone_mobile', 'active'];
+    protected $fillable = ['company', 'first_name', 'last_name', 'active'];
 
+    public function addresses()
+    {
+        return $this->belongsToMany('App\Models\Address', 'entities_addresses' );
+    }
+    
 }

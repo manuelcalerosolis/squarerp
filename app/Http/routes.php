@@ -15,18 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('user', 'UsersController');
+
+Route::resource('entity','EntityController');
+
 Route::get('address', function () {
     $entity = App\Models\Entity::find(1);
     return view('address',['entity' => $entity]);
-
-//    echo $entity->company;
-//    echo $entity->first_name;
-//    echo $entity->last_name;
-//
-//    foreach ($entity->address as $address) {
-//        echo $address->address1;//        ', 'address2', 'postal_code', 'city', 'other', 'phone', 'phone_mobile', 'active';
-//    }
-
-    return 'Hello World';
 });
 

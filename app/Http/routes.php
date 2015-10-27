@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('user', 'UsersController');
+Route::resource('user', 'UserController');
 
 Route::resource('entity','EntityController');
 
 Route::get('address', function () {
     $entity = App\Models\Entity::find(1);
-    return view('address',['entity' => $entity]);
+    return view('address', ['entity' => $entity]);
 });
 

@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        DB::table('users')->truncate();
-        factory(App\User::class, recordsNumber)->create();
+//        DB::table('users')->truncate();
+//        factory(App\User::class, recordsNumber)->create();
 
         DB::table('entities')->truncate();
-        factory(App\Entity::class, recordsNumber)->create();
+        factory(App\Models\Entity::class, recordsNumber)->create();
 
         DB::table('addresses')->truncate();
         factory(App\Models\Address::class, recordsNumber)->create();

@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 Route::resource('user', 'UserController');
 
-Route::resource('entity','EntityController');
+//Route::resource('entity','EntityController');
 
-Route::get('address', function () {
-    $entity = App\Models\Entity::find(1);
-    return view('address', ['entity' => $entity]);
-});
 

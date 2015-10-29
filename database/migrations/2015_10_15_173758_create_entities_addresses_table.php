@@ -29,6 +29,6 @@ class CreateEntitiesAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('entities_address');
+        Schema::drop('entities_addresses');
     }
 }

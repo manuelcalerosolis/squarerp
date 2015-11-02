@@ -2,6 +2,35 @@
 
 All notable changes of the PHPUnit 4.8 release series are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [4.8.16] - 2015-10-23
+
+### Added
+
+* Implemented [#1925](https://github.com/sebastianbergmann/phpunit/issues/1925): Provide a library-only PHAR
+
+## [4.8.15] - 2015-10-22
+
+### Fixed
+
+* The backup of global state is now properly restored when changes to global state are disallowed
+* The `__PHPUNIT_PHAR__` constant is now properly set when the PHPUnit PHAR is used as a library
+
+## [4.8.14] - 2015-10-17
+
+### Fixed
+
+* Fixed [#1892](https://github.com/sebastianbergmann/phpunit/issues/1892): `--coverage-text` does not honor color settings
+
+## [4.8.13] - 2015-10-14
+
+### Added
+
+* Added the `--self-upgrade` commandline switch for upgrading a PHPUnit PHAR to the latest version
+
+### Changed
+
+* The `--self-update` commandline switch now updates a PHPUnit PHAR to the latest version within the same release series
+
 ## [4.8.12] - 2015-10-12
 
 ### Changed
@@ -91,6 +120,10 @@ New PHAR release due to updated dependencies
 * Made the argument check of `assertContains()` and `assertNotContains()` more strict to prevent undefined behavior such as [#1808](https://github.com/sebastianbergmann/phpunit/issues/1808)
 * Changed the name of the default group from `__nogroup__` to `default`
 
+[4.8.16]: https://github.com/sebastianbergmann/phpunit/compare/4.8.15...4.8.16
+[4.8.15]: https://github.com/sebastianbergmann/phpunit/compare/4.8.14...4.8.15
+[4.8.14]: https://github.com/sebastianbergmann/phpunit/compare/4.8.13...4.8.14
+[4.8.13]: https://github.com/sebastianbergmann/phpunit/compare/4.8.12...4.8.13
 [4.8.12]: https://github.com/sebastianbergmann/phpunit/compare/4.8.11...4.8.12
 [4.8.11]: https://github.com/sebastianbergmann/phpunit/compare/4.8.10...4.8.11
 [4.8.10]: https://github.com/sebastianbergmann/phpunit/compare/4.8.9...4.8.10

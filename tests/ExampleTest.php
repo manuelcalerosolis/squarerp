@@ -34,13 +34,4 @@ class ExampleTest extends TestCase
              ->see('Laravel 5');
     }
 
-    public function testFetchesAdultsDogs()
-    {
-        Dog::create(['name' => 'Rover', 'age' => 1]);
-        Dog::create(['name' => 'Bob', 'age' => 7 ]);
-
-        $dogs = Dog::adults()->get();
-
-        $this->assertCount(1, $dogs);
-    }
 }

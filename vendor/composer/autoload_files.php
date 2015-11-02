@@ -12,7 +12,9 @@ return array(
     $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     $vendorDir . '/psy/psysh/src/Psy/functions.php',
     $vendorDir . '/danielstjules/stringy/src/Create.php',
+    $vendorDir . '/paragonie/random_compat/lib/random.php',
+    $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
-    $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
+    $vendorDir . '/laravelcollective/html/src/helpers.php',
 );

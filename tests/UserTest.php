@@ -10,14 +10,14 @@ class UserTest extends TestCase
 
     public function testUserCreate()
     {
-
-        $data = $this->getData();
-
         // Creamos un nuevo usuario y verificamos la respuesta
 
-        $this->post('/user', $data)
+        $this->post('/user', $this->getData())
             ->seeJsonEquals(['created' => true]);
-
+//    }
+//
+//    public function testUserUpdate()
+//    {
         // Actualizamos al usuario recien creado (id = 1)
 
         $data = $this->getData(['name' => 'jane']);
@@ -29,7 +29,10 @@ class UserTest extends TestCase
 
         $this->get('user/1')
             ->seeJson(['name' => 'jane']);
+    }
 
+    public function testUserDelete()
+    {
         // Eliminamos al usuario
 
         $this->delete('user/1')

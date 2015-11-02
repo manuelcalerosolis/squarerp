@@ -152,7 +152,7 @@ class Mailer implements MailerContract, MailQueueContract
      * @param  string|array  $view
      * @param  array  $data
      * @param  \Closure|string  $callback
-     * @return mixed
+     * @return void
      */
     public function send($view, array $data, $callback)
     {
@@ -332,11 +332,15 @@ class Mailer implements MailerContract, MailQueueContract
         }
 
         if (isset($plain)) {
-            $message->addPart($this->getView($plain, $data), 'text/plain');
+            $method = isset($view) ? 'addPart' : 'setBody';
+
+            $message->$method($this->getView($plain, $data), 'text/plain');
         }
 
         if (isset($raw)) {
-            $message->addPart($raw, 'text/plain');
+            $method = (isset($view) || isset($plain)) ? 'addPart' : 'setBody';
+
+            $message->$method($raw, 'text/plain');
         }
     }
 

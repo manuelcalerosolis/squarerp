@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\User;
+use App\Http\Requests\CreateUserRequest;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user');
     }
 
     /**
@@ -34,13 +35,8 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        if (!$this->validRequest($request))
-        {
-            return ['created' => false];
-        }
-
         User::create($request->all());
 
         return ['created' => true];
@@ -54,7 +50,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return User::findOrFail($id);
     }
 
     /**
@@ -75,13 +71,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateUserRequest $request, $id)
     {
-        if (!$this->validRequest($request) )
-        {
-            return ['updated' => false];
-        }
-
         $user = User::find($id);
         if (!$user)
         {
@@ -102,10 +93,5 @@ class UserController extends Controller
     {
         User::destroy($id);
         return ['deleted' => true ];
-    }
-
-    public function validRequest(Request $request)
-    {
-        return ( $request->input('name') and $request->input('email') and $request->input('password') );
     }
 }

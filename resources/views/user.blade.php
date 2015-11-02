@@ -46,6 +46,10 @@
             {!! Form::password('password')!!}
         </p>
 
+        <p>
+            {!! Form::label('password_confirmation', 'Password confirmation:')!!}
+            {!! Form::password('password_confirmation')!!}
+        </p>
 
         <p>
         {!! Form::submit('Click Me!') !!}
@@ -58,7 +62,6 @@
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-
             </ul>
         @endif
 

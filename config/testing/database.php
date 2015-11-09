@@ -2,16 +2,14 @@
 
 return [
 
-    'default' => 'sqllite',
+    'default' => 'sqlite',
 
     'connections' => [
-
         'sqlite' => [
             'driver'   => 'sqlite',
             'database' => ':memory:',
             'prefix'   => '',
         ],
-
     ],
 
 ];

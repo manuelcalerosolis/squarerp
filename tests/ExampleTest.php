@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Models\Dog;
 use Illuminate\Support\Facades\Artisan;
 
 class ExampleTest extends TestCase
@@ -18,9 +17,9 @@ class ExampleTest extends TestCase
 
     public function tearDown()
     {
-        Artisan::call('migrate:reset');
+        // Artisan::call('migrate:reset');
 
-        parent::tearDown();
+        // parent::tearDown();
     }
 
     /**

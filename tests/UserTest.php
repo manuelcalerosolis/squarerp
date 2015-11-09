@@ -8,47 +8,57 @@ class UserTest extends TestCase
     use DatabaseMigrations;
     use WithoutMiddleware;
 
-    public function testUserCreate()
+    public function testUserCreateByForm()
     {
-        // Creamos un nuevo usuario y verificamos la respuesta
+        $this->visit('/user/create')
+            ->type('Taylor Otwell', 'name')
+            ->type('taylor@laravel.com', 'email')
+            ->type('secret', 'password')
+            ->type('secret', 'password_confirmation')
+            ->press('Register')
+            ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
+    }
 
-        $this->post('/user', $this->getData())
-            ->seeJsonEquals(['created' => true]);
+//    public function testUserCreateFromArray()
+//    {
+//        $data = $this->getData();
+//
+//        $this->post('/user', $data)
+//            ->seeJsonEquals(['created' => true]);
 //    }
 //
-//    public function testUserUpdate()
+//    public function getData()
 //    {
-        // Actualizamos al usuario recien creado (id = 1)
+//        $data = [
+//            'name'      => 'joe',
+//            'email'     => 'joe@doe.com',
+//            'password'  => '12345678'
+//        ];
+//        return $data;
+//    }
 
-        $data = $this->getData(['name' => 'jane']);
-        $this->put('/user/1', $data)
-            ->seeJsonEquals(['updated' => true]);
-
-        // Obtenemos los datos de dicho usuario modificado
-        // y verificamos que el nombre sea el correcto
-
-        $this->get('user/1')
-            ->seeJson(['name' => 'jane']);
-    }
-
-    public function testUserDelete()
-    {
-        // Eliminamos al usuario
-
-        $this->delete('user/1')
-            ->seeJson(['deleted' => true]);
-    }
-
-    public function getData($custom = array())
-    {
-        $data = [
-            'name'      => 'joe',
-            'email'     => 'joe@doe.com',
-            'password'  => '12345',
-            'created_at'=> '2015-01-01 00:00:00',
-            'updated_at'=> '2015-01-01 00:00:00',
-        ];
-        $data = array_merge($data, $custom);
-        return $data;
-    }
 }
+
+
+//public function testUserUpdate()
+//{
+
+//        $data = $this->getData(['name' => 'jane']);
+//        $this->put('/user/1', $data)
+//            ->seeJsonEquals(['updated' => true]);
+//
+//        // Obtenemos los datos de dicho usuario modificado
+//        // y verificamos que el nombre sea el correcto
+//
+//        $this->get('user/1')
+//            ->seeJson(['name' => 'jane']);
+//}
+
+//public function testUserDelete()
+//{
+    // Eliminamos al usuario
+//
+//        $this->delete('user/1')
+//            ->seeJson(['deleted' => true]);
+//}
+

@@ -52,12 +52,12 @@
         </p>
 
         <p>
-        {!! Form::submit('Click Me!') !!}
+        {!! Form::submit('Register') !!}
         </p>
 
         {!! Form::close() !!}
 
-        @if ($errors->any())
+        @if (isset($errors) and $errors->any())
             <ul>
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>

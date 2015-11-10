@@ -8,7 +8,7 @@ class UserTest extends TestCase
     use DatabaseMigrations;
     use WithoutMiddleware;
 
-    public function testUserCreateByForm()
+    public function testUserCreateFromForm()
     {
         $this->visit('/user/create')
             ->type('Taylor Otwell', 'name')
@@ -19,23 +19,27 @@ class UserTest extends TestCase
             ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
     }
 
-//    public function testUserCreateFromArray()
-//    {
-//        $data = $this->getData();
-//
-//        $this->post('/user', $data)
-//            ->seeJsonEquals(['created' => true]);
-//    }
-//
-//    public function getData()
-//    {
-//        $data = [
-//            'name'      => 'joe',
-//            'email'     => 'joe@doe.com',
-//            'password'  => '12345678'
-//        ];
-//        return $data;
-//    }
+    public function testUserCreateFromArray()
+    {
+        $data = [
+            'name'      => 'joe doe',
+            'email'     => 'joe@doe.com',
+            'password'  => '12345678'
+        ];
+        $this->post('/user', $data)
+            ->seeJsonEquals(['created' => true]);
+    }
+
+    public function getData()
+    {
+        $data = [
+            'name'      => 'joe',
+            'email'     => 'joe@doe.com',
+            'password'  => '12345678',
+            'password_confirmation' => '12345678'
+        ];
+        return $data;
+    }
 
 }
 

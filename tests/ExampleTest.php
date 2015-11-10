@@ -17,9 +17,9 @@ class ExampleTest extends TestCase
 
     public function tearDown()
     {
-        // Artisan::call('migrate:reset');
+        Artisan::call('migrate:reset');
 
-        // parent::tearDown();
+        parent::tearDown();
     }
 
     /**

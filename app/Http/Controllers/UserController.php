@@ -35,12 +35,12 @@ class UserController extends Controller
         //
     }
 
-    public function update(CreateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         if (!$user)
         {
-            return ['updated' => false];
+            return ['reviento' => false];
         }
 
         $user->update($request->all());

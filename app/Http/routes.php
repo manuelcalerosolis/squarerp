@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Route::resource('user', 'UserController');
 
-//Route::resource('entity','EntityController');
+Route::resource('entity','EntityController');
 
 

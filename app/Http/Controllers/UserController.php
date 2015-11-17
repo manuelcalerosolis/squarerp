@@ -36,7 +36,7 @@ class UserController extends Controller
         return view('EditUser');
     }
 
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (!$user)

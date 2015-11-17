@@ -7,21 +7,6 @@ use Illuminate\Support\Facades\Artisan;
 
 class ExampleTest extends TestCase
 {
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        Artisan::call('migrate');
-    }
-
-    public function tearDown()
-    {
-        Artisan::call('migrate:reset');
-
-        parent::tearDown();
-    }
-
     /**
      * A basic functional test example.
      *

@@ -19,27 +19,45 @@ class UserTest extends TestCase
             ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
     }
 
-    public function testUserCreateFromArray()
+    public function testUserCreateErrorFromArray()
     {
-        $data = [
-            'name'      => 'joe doe',
-            'email'     => 'joe@doe.com',
-            'password'  => '12345678'
-        ];
-        $this->post('/user', $data)
-            ->seeJsonEquals(['created' => true]);
-    }
+        //probamos crear un usuario que no cumple el requisito por longitud del campo nombre
 
-    public function getData()
-    {
         $data = [
             'name'      => 'joe',
             'email'     => 'joe@doe.com',
             'password'  => '12345678',
-            'password_confirmation' => '12345678'
+            'password_confirmation'  => '12345678'
         ];
-        return $data;
+        $this->post('/user', $data)
+            ->seeStatusCode(302);
+
+        //creamos un usuario valido
+
+        $data = [
+            'name'      => 'joedoe',
+            'email'     => 'joe@doe.com',
+            'password'  => '12345678',
+            'password_confirmation'  => '12345678'
+        ];
+        $this->post('/user', $data)
+            ->seeJsonEquals(['created' => true]);
+
+        //modificamos un usuario
+
+        $data = [
+            'email'     => 'joedoe@laravel.com'
+        ];
+        $this->patch('/user/1', $data)
+            ->seeJsonEquals(['updated' => true]);
+
+        //borrar un usuario
+
+        $this->delete('/user/1')
+            ->seeJsonEquals(['deleted' => true ]);
+
     }
+
 
 }
 

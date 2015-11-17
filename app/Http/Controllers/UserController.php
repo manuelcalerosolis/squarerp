@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user');
+        return view('CreateUser');
     }
 
     public function store(CreateUserRequest $request)
@@ -32,10 +33,10 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+        return view('EditUser');
     }
 
-    public function update(CreateUserRequest $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $user = User::find($id);
         if (!$user)

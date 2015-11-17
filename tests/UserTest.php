@@ -2,41 +2,13 @@
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
     use DatabaseMigrations;
+    use WithoutMiddleware;
 
-    public function testUserFromArray()
-    {
-
-        // crea un usuario
-
-        $data = [
-            'name'      => 'joe doe',
-            'email'     => 'joe@doe.com',
-            'password'  => '12345678'
-        ];
-        $this->post('/user', $data)
-            ->seeJsonEquals(['created' => true]);
-
-        // cambiamos su nombre
-
-        $data = [
-            'name'      => 'paco'
-        ];
-        $this->put('/user/1', $data)
-            ->seeJsonEquals(['updated' => true]);
-
-        // eliminamos el usuario
-
-        $this->delete('user/1')
-            ->seeJson(['deleted' => true]);
-
-    }
-
-    public function testUserFromForm()
+    public function testUserCreateFromForm()
     {
         $this->visit('/user/create')
             ->type('Taylor Otwell', 'name')
@@ -47,6 +19,68 @@ class UserTest extends TestCase
             ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
     }
 
+    public function testUserCreateErrorFromArray()
+    {
+        //probamos crear un usuario que no cumple el requisito por longitud del campo nombre
+
+        $data = [
+            'name'      => 'joe',
+            'email'     => 'joe@doe.com',
+            'password'  => '12345678',
+            'password_confirmation'  => '12345678'
+        ];
+        $this->post('/user', $data)
+            ->seeStatusCode(302);
+
+        //creamos un usuario valido
+
+        $data = [
+            'name'      => 'joedoe',
+            'email'     => 'joe@doe.com',
+            'password'  => '12345678',
+            'password_confirmation'  => '12345678'
+        ];
+        $this->post('/user', $data)
+            ->seeJsonEquals(['created' => true]);
+
+        //modificamos un usuario
+
+        $data = [
+            'email'     => 'joedoe@laravel.com'
+        ];
+        $this->patch('/user/1', $data)
+            ->seeJsonEquals(['updated' => true]);
+
+        //borrar un usuario
+
+        $this->delete('/user/1')
+            ->seeJsonEquals(['deleted' => true ]);
+
+    }
+
+
 }
 
+
+//public function testUserUpdate()
+//{
+
+//        $data = $this->getData(['name' => 'jane']);
+//        $this->put('/user/1', $data)
+//            ->seeJsonEquals(['updated' => true]);
+//
+//        // Obtenemos los datos de dicho usuario modificado
+//        // y verificamos que el nombre sea el correcto
+//
+//        $this->get('user/1')
+//            ->seeJson(['name' => 'jane']);
+//}
+
+//public function testUserDelete()
+//{
+    // Eliminamos al usuario
+//
+//        $this->delete('user/1')
+//            ->seeJson(['deleted' => true]);
+//}
 

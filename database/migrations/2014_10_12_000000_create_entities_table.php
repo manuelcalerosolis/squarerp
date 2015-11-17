@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEntitiesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('entities', function (Blueprint $table) {

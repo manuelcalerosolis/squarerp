@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Entity;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateEntityRequest;
 
 class EntityController extends Controller
 {
@@ -26,7 +26,7 @@ class EntityController extends Controller
      */
     public function create()
     {
-        //
+        return view('createentity');
     }
 
     /**
@@ -35,9 +35,10 @@ class EntityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateEntityRequest $request)
     {
-        //
+        Entity::create($request->all());
+        return ['created' => true];
     }
 
     /**
@@ -52,7 +53,7 @@ class EntityController extends Controller
 
         if (!$entity)
         {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese código.'])],404);
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese cï¿½digo.'])],404);
         }
 
         return response()->json(['status'=>'ok','data'=>$entity],200);

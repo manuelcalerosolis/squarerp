@@ -46,7 +46,8 @@ class UserTest extends TestCase
         //modificamos un usuario
 
         $data = [
-            'email'     => 'joedoe@laravel.com'
+            'name'      => 'joedoe',
+            'email'     => 'joe@doe.com'
         ];
         $this->patch('/user/1', $data)
             ->seeJsonEquals(['updated' => true]);
@@ -60,27 +61,4 @@ class UserTest extends TestCase
 
 
 }
-
-
-//public function testUserUpdate()
-//{
-
-//        $data = $this->getData(['name' => 'jane']);
-//        $this->put('/user/1', $data)
-//            ->seeJsonEquals(['updated' => true]);
-//
-//        // Obtenemos los datos de dicho usuario modificado
-//        // y verificamos que el nombre sea el correcto
-//
-//        $this->get('user/1')
-//            ->seeJson(['name' => 'jane']);
-//}
-
-//public function testUserDelete()
-//{
-    // Eliminamos al usuario
-//
-//        $this->delete('user/1')
-//            ->seeJson(['deleted' => true]);
-//}
 

@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::all();//
+        return User::all();//Gestool::allClients()
     }
 
     public function create()
@@ -36,7 +36,7 @@ class UserController extends Controller
         return view('EditUser');
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $user = User::find($id);
         if (!$user)

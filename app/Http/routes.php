@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/polymer', function () {
+    return view('welcome-polymer');
+});
+
+
 Route::resource('user', 'UserController');
 
 Route::resource('entity','EntityController');

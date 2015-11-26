@@ -30,7 +30,12 @@
 <div class="container">
 
     {{--<form method="POST" action="auth/login">--}}
-    {!! Form::open( ['route' => 'auth/login', 'method' => 'POST'] ) !!}
+    {!! Form::open( ['route' => 'auth/register', 'method' => 'POST'] ) !!}
+
+    <p>
+        {!! Form::label('name', 'Name:') !!}
+        {!! Form::text('name') !!}
+    </p>
 
     <p>
         {!! Form::label('email', 'Email:') !!}
@@ -43,13 +48,16 @@
     </p>
 
     <p>
-        {!! Form::submit('login') !!}
+        {!! Form::label('password_confirmation','Repeat Password:')!!}
+        {!! Form::password('password_confirmation')!!}
     </p>
 
-
+    <p>
+        {!! Form::submit('Register') !!}
+    </p>
 
     {!! Form::close() !!}
-    {!! link_to_route('auth/register', 'register') !!}
+
     @if (isset($errors) and $errors->any())
         <ul>
             @foreach($errors->all() as $error)

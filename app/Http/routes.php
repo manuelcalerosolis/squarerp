@@ -60,4 +60,8 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 Route::resource('user', 'UserController');
 Route::resource('entity','EntityController');
 
+Route::get('gestool/products', [
+    'as' => 'gestool/products',
+    'uses' => 'Gestool\ProductsController@index',
+]);
 

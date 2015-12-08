@@ -29,7 +29,7 @@
 <body>
 <div class="container">
 
-    {!! Form::open( ['route' => 'auth/login', 'method' => 'POST'] ) !!}
+    {!! Form::open( ['route' => 'password/email', 'method' => 'POST'] ) !!}
 
     <p>
         {!! Form::label('email', 'Email:') !!}
@@ -37,17 +37,10 @@
     </p>
 
     <p>
-        {!! Form::label('password','Password:')!!}
-        {!! Form::password('password')!!}
-    </p>
-
-    <p>
         {!! Form::submit('login') !!}
     </p>
 
     {!! Form::close() !!}
-
-    {!! link_to_route('auth/register', 'register') !!}
 
     @if (isset($errors) and $errors->any())
         <ul>

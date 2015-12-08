@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User</title>
+    <title>Password reset</title>
 
     <style>
         html, body {
@@ -29,7 +29,7 @@
 <body>
 <div class="container">
 
-    {!! Form::open( ['route' => 'auth/login', 'method' => 'POST'] ) !!}
+    {!! Form::open( ['route' => 'password/reset', 'method' => 'POST'] ) !!}
 
     <p>
         {!! Form::label('email', 'Email:') !!}
@@ -42,12 +42,15 @@
     </p>
 
     <p>
-        {!! Form::submit('login') !!}
+        {!! Form::label('password','Confirm password:')!!}
+        {!! Form::password('password_confirmation')!!}
+    </p>
+
+    <p>
+        {!! Form::submit('Reset Password') !!}
     </p>
 
     {!! Form::close() !!}
-
-    {!! link_to_route('auth/register', 'register') !!}
 
     @if (isset($errors) and $errors->any())
         <ul>

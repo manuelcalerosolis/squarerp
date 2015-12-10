@@ -1,65 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Password reset</title>
+<!-- resources/views/auth/reset.blade.php -->
 
-    <style>
-        html, body {
-            height: 100%;
-        }
+<form method="POST" action="/password/reset">
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
+    {!! csrf_field() !!}
 
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
+    <input type="hidden" name="token" value="{{ $token }}">
 
-    </style>
-
-</head>
-<body>
-<div class="container">
-
-    {!! Form::open( ['route' => 'password/reset', 'method' => 'POST'] ) !!}
-
-    <p>
-        {!! Form::label('email', 'Email:') !!}
-        {!! Form::text('email') !!}
-    </p>
-
-    <p>
-        {!! Form::label('password','Password:')!!}
-        {!! Form::password('password')!!}
-    </p>
-
-    <p>
-        {!! Form::label('password','Confirm password:')!!}
-        {!! Form::password('password_confirmation')!!}
-    </p>
-
-    <p>
-        {!! Form::submit('Reset Password') !!}
-    </p>
-
-    {!! Form::close() !!}
-
-    @if (isset($errors) and $errors->any())
+    @if (isset($errors) and count($errors) > 0)
         <ul>
-            @foreach($errors->all() as $error)
+            @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
     @endif
 
-</div>
-</body>
-</html>
+    <div>
+        Email
+        <input type="email" name="email" value="{{ old('email') }}">
+    </div>
+
+    <div>
+        Password
+        <input type="password" name="password">
+    </div>
+
+    <div>
+        Confirm Password
+        <input type="password" name="password_confirmation">
+    </div>
+
+    <div>
+        <button type="submit">
+            Reset Password
+        </button>
+    </div>
+
+</form>
+

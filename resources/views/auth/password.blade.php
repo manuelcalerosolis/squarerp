@@ -1,55 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User</title>
+<form method="POST" action="/password/email">
 
-    <style>
-        html, body {
-            height: 100%;
-        }
+    {!! csrf_field() !!}
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
+    @include('partials.errors')
 
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
+    <div>
+        Email
+        <input type="email" name="email" value="{{ old('email') }}">
+    </div>
 
-    </style>
+    <div>
+        <button type="submit">
+            Submit
+        </button>
+    </div>
 
-</head>
-<body>
-<div class="container">
+</form>
 
-    {!! Form::open( ['route' => 'password/email', 'method' => 'POST'] ) !!}
-
-    <p>
-        {!! Form::label('email', 'Email:') !!}
-        {!! Form::text('email') !!}
-    </p>
-
-    <p>
-        {!! Form::submit('login') !!}
-    </p>
-
-    {!! Form::close() !!}
-
-    @if (isset($errors) and $errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-</div>
-</body>
-</html>

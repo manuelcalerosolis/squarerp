@@ -1,18 +1,10 @@
-<!-- resources/views/auth/reset.blade.php -->
-
 <form method="POST" action="/password/reset">
 
     {!! csrf_field() !!}
 
     <input type="hidden" name="token" value="{{ $token }}">
 
-    @if (isset($errors) and count($errors) > 0)
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+    @include('partials.errors')
 
     <div>
         Email

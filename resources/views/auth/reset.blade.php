@@ -7,23 +7,23 @@
     @include('partials.errors')
 
     <div>
-        Email
+        {{trans('forms.email')}}
         <input type="email" name="email" value="{{ old('email') }}">
     </div>
 
     <div>
-        Password
+        {{trans('forms.email')}}
         <input type="password" name="password">
     </div>
 
     <div>
-        Confirm Password
+        {{trans('forms.repeat_password')}}
         <input type="password" name="password_confirmation">
     </div>
 
     <div>
         <button type="submit">
-            Reset Password
+            {{trans('forms.reset_password')}}
         </button>
     </div>
 

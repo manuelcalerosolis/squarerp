@@ -6,7 +6,8 @@
 
     <div>
         Email
-        <input type="email" name="email" value="{{ old('email') }}">
+        <input type="email" name="email">
+        {{--value="{{ old('email') }}">--}}
     </div>
 
     <div>
@@ -16,7 +17,7 @@
 
     <div>
         <button type="submit">
-            Login
+            {{trans('forms.login')}}
         </button>
     </div>
 

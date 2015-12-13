@@ -1,71 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User</title>
+<form method="POST" action="/auth/register">
 
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-    </style>
-
-</head>
-<body>
-<div class="container">
-
-    {{--<form method="POST" action="auth/login">--}}
-    {!! Form::open( ['route' => 'auth/register', 'method' => 'POST'] ) !!}
+    {!! csrf_field() !!}
 
     <p>
-        {!! Form::label('name', 'Name:') !!}
-        {!! Form::text('name') !!}
+        <label for="name">{{trans('forms.name')}}:</label>
+        <input name="name" type="text" id="name">
     </p>
 
     <p>
-        {!! Form::label('email', 'Email:') !!}
-        {!! Form::text('email') !!}
+        <label for="email">{{trans('forms.email')}}:</label>
+        <input name="email" type="text" id="email">
     </p>
 
     <p>
-        {!! Form::label('password','Password:')!!}
-        {!! Form::password('password')!!}
+        <label for="password">{{trans('forms.password')}}:</label>
+        <input name="password" type="password" value="" id="password">
     </p>
 
     <p>
-        {!! Form::label('password_confirmation','Repeat Password:')!!}
-        {!! Form::password('password_confirmation')!!}
+        <label for="password_confirmation">{{trans('forms.repeat_password')}}:</label>
+        <input name="password_confirmation" type="password" value="" id="password_confirmation">
     </p>
 
     <p>
-        {!! Form::submit('Register') !!}
+        <button type="submit">
+            {{trans('forms.register')}}
+        </button>
     </p>
 
-    {!! Form::close() !!}
+</form>
 
-    @if (isset($errors) and $errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-</div>
-</body>
-</html>

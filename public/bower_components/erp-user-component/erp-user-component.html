@@ -1,0 +1,23 @@
+<dom-module id="erp-user-component">
+    <link rel="stylesheet" type="text/css" href="erp-user-component.css">
+    <template>
+    <div>
+            <span>{{usuario}}</span>
+            <input type="text" name="usuario" value="">
+
+    </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'erp-user-component',
+        properties:  {
+            usuario: String
+        },
+        ready: function(){
+           console.log("erp-user-component ready!") ;
+            this.usuario = "Usuario";
+        }
+    });
+</script>

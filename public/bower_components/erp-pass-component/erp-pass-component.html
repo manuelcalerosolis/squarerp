@@ -1,0 +1,22 @@
+<dom-module id="erp-pass-component">
+    <link rel="stylesheet" type="text/css" href="erp-pass-component.css">
+    <template>
+    <div>
+            <span>{{password}}</span>
+            <input type="password" name="input-password" value="">
+    </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'erp-pass-component',
+        properties:  {
+            password: String
+        },
+        ready: function(){
+           console.log("erp-pass-component ready!") ;
+            this.password = "Clave";
+        }
+    });
+</script>

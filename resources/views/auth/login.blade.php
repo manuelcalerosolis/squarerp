@@ -5,13 +5,13 @@
     @include('partials.errors')
 
     <div>
-        Email
+        {{trans('forms.email')}}
         <input type="email" name="email" >
         {{--value="{{ old('email') }}"--}}
     </div>
 
     <div>
-        Password
+        {{trans('forms.password')}}
         <input type="password" name="password">
     </div>
 

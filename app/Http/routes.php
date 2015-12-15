@@ -22,6 +22,9 @@ Route::group(['middleware' => 'auth'], function () {
         return view('home');
     });
 
+    Route::resource('user', 'UserController');
+    Route::resource('entity','EntityController');
+
 });
 
 Route::get('/polymer', function () {
@@ -65,8 +68,6 @@ Route::get('password/reset/{token}', [
 ]);
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
-Route::resource('user', 'UserController');
-Route::resource('entity','EntityController');
 
 Route::get('gestool/products', [
     'as' => 'gestool/products',

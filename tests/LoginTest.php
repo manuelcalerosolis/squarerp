@@ -1,24 +1,25 @@
 <?php
 
+use \Mockery as m;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Session\Middleware\StartSession;
 
 class LoginTest extends TestCase
 {
     use DatabaseMigrations;
     use WithoutMiddleware;
 
+    protected $session;
+
     public function setUp()
     {
         parent::setUp();
-
-        $this->app->make('Illuminate\Contracts\Http\Kernel')
-            ->pushMiddleware('Illuminate\Session\Middleware\StartSession');
     }
-
 
     public function testRegisterUserCreateFromForm()
     {
+
         $this->visit('/auth/register')
             ->type('Taylor Otwell', 'name')
             ->type('taylor@laravel.com', 'email')

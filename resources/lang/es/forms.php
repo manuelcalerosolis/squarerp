@@ -17,7 +17,7 @@ return [
     'reset' => 'Resetear',
     'register' => 'Registrar',
     'name' => 'Nombre',
-    'email' => 'Correo electónico',
+    'email' => 'Correo electrónico',
     'password' => 'Contraseña',
     'repeat_password' => 'Repetir contraseña',
     'reset_password' => 'Resetear contraseña',

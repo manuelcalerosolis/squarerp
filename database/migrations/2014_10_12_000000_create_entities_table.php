@@ -13,8 +13,8 @@ class CreateEntitiesTable extends Migration
             $table->string('company')->nullable();
             $table->string('first_name', 32);
             $table->string('last_name', 32)->nullable();
-            $table->boolean('active')->default(true);
-            $table->timestamps();
+            $table->softDeletes();
+            $table->timeStamps();
         });
     }
 

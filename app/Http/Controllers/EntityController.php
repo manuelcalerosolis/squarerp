@@ -26,7 +26,7 @@ class EntityController extends Controller
      */
     public function create()
     {
-        return view('createentity');
+        return view('entities.create');
     }
 
     /**
@@ -38,7 +38,6 @@ class EntityController extends Controller
     public function store(CreateEntityRequest $request)
     {
         Entity::create($request->all());
-        return ['created' => true];
     }
 
     /**

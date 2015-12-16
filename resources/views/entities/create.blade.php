@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-    <form action="/entity" method="POST">
+
+@include('partials.errors')
+
+<form action="/entity" method="POST">
 
     {!! csrf_field() !!}
-
-    @include('partials.errors')
 
     <p>
         <label for="company">{{trans('forms.company')}} </label>
@@ -21,11 +22,9 @@
     </p>
 
     <p>
-        <input type="checkbox">Activo
-    </p>
-
-    <p>
-        <input type="submit" name="active">
+        <button type="submit">
+            {{trans('forms.register')}}
+        </button>
     </p>
 
     </form>

@@ -1,21 +1,15 @@
 <?php
 
-use \Mockery as m;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Session\Middleware\StartSession;
+use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
-    use DatabaseMigrations;
-    use WithoutMiddleware;
 
-    protected $session;
-
-    public function setUp()
-    {
-        parent::setUp();
-    }
+//    use DatabaseMigrations;
+//    use WithoutMiddleware;
+    use DatabaseTransactions;
 
     public function testRegisterUserCreateFromForm()
     {
@@ -28,20 +22,20 @@ class LoginTest extends TestCase
             ->press(trans('forms.register'))
             ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
 
-        $this->visit('/auth/login')
-            ->type('taylor@laravel.com', 'email')
-            ->type('secret', 'password')
-            ->press(trans('forms.login'))
-            ->seePageIs('/home');
-
-        $this->visit('auth/logout')
-            ->seePageIs('/');
-
-        $this->visit('auth/login')
-            ->type('taylor@laravel.es', 'email')
-            ->type('secret', 'password')
-            ->press(trans('forms.login'))
-            ->seeStatusCode(200);
+//        $this->visit('/auth/login')
+//            ->type('taylor@laravel.com', 'email')
+//            ->type('secret', 'password')
+//            ->press(trans('forms.login'))
+//            ->seePageIs('/home');
+//
+//        $this->visit('auth/logout')
+//            ->seePageIs('/');
+//
+//        $this->visit('auth/login')
+//            ->type('taylor@laravel.es', 'email')
+//            ->type('secret', 'password')
+//            ->press(trans('forms.login'))
+//            ->seeStatusCode(200);
     }
 
 }

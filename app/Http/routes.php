@@ -20,8 +20,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-    Route::resource('user', 'UserController');
-    Route::resource('entity','EntityController');
+// esto debe estar dentro del midelware auth
+
+Route::resource('user', 'UserController');
+Route::resource('entity','EntityController');
+
+// demo de polymer
 
 Route::get('/polymer', function () {
     return view('welcome-polymer');

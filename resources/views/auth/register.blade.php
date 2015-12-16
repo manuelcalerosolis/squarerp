@@ -4,12 +4,12 @@
 
     <p>
         <label for="name">{{trans('forms.name')}}:</label>
-        <input name="name" type="text" id="name">
+        <input name="name" type="text" id="name" value="{{ old('name') }}">
     </p>
 
     <p>
         <label for="email">{{trans('forms.email')}}:</label>
-        <input name="email" type="text" id="email">
+        <input name="email" type="text" id="email" value="{{ old('email') }}">
     </p>
 
     <p>

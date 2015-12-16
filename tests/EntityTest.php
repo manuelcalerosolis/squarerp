@@ -1,12 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class EntityTest extends TestCase
 {
-    use DatabaseMigrations;
-    use WithoutMiddleware;
+    use DatabaseTransactions;
 
     public function testEntityCreateFromForm()
     {

@@ -1,10 +1,10 @@
 <form method="POST" action="/password/reset">
 
+    @include('partials.errors')
+
     {!! csrf_field() !!}
 
     <input type="hidden" name="token" value="{{ $token }}">
-
-    @include('partials.errors')
 
     <div>
         {{trans('forms.email')}}

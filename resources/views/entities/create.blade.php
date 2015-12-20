@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-@include('partials.errors')
-
 <form action="/entity" method="POST">
+
+    @include('partials.errors')
 
     {!! csrf_field() !!}
 

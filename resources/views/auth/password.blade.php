@@ -1,8 +1,8 @@
 <form method="POST" action="/password/email">
 
-    {!! csrf_field() !!}
-
     @include('partials.errors')
+
+    {!! csrf_field() !!}
 
     <div>
         {{trans('forms.email')}}
@@ -16,4 +16,3 @@
     </div>
 
 </form>
-

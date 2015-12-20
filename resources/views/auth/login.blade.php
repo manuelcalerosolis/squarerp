@@ -1,6 +1,6 @@
-@include('partials.errors')
-
 <form method="POST" action="/auth/login">
+
+    @include('partials.errors')
 
     {!! csrf_field() !!}
 

@@ -16,7 +16,7 @@ class EntityController extends Controller
      */
     public function index()
     {
-        return response()->json(['status'=>'ok','data'=>Entity::all()], 200);
+        return view('entities.index');
     }
 
     /**

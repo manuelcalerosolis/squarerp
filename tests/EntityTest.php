@@ -8,7 +8,10 @@ class EntityTest extends TestCase
 
     public function testEntityCreateFromForm()
     {
-        $this->visit('/entity/create')
+        $user = factory(App\Models\User::class)->create();
+
+        $this->actingAs($user)
+            ->visit('/entity/create')
             ->type('watchdog', 'company')
             ->type('manuel', 'first_name')
             ->type('calero', 'last_name')

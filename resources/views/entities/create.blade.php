@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+@inject('entities', 'App\Models\Entity')
+
 <form action="/entity" method="POST">
 
     @include('partials.errors')

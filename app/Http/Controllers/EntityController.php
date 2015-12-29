@@ -67,7 +67,7 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('entities.edit');
     }
 
     /**

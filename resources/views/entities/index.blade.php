@@ -8,6 +8,7 @@
     <p>
         {{ $entity->company }} - {!! $entity->first_name !!} - {!! $entity->last_name !!}
         {!! link_to_route('entity.edit', $title = 'Editar', $parameters = $entity->id) !!}
+        {!! link_to_route('entity.destroy', $title = 'Eliminar', $parameters = $entity->id) !!}
     </p>
 @endforeach
 

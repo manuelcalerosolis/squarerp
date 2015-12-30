@@ -110,6 +110,8 @@ class EntityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Entity::destroy($id);
+
+        return Redirect::to('/entity');
     }
 }

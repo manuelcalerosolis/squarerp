@@ -1,12 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Entity;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Requests\CreateEntityRequest;
 
+use App\Http\Requests;
+use App\Http\Requests\Entity\Create;
+use App\Http\Requests\Entity\Update;
+
+use Illuminate\Support\Facades\Redirect;
+
+/**
+ * Class EntityController
+ * @package App\Http\Controllers
+ */
 class EntityController extends Controller
 {
     /**
@@ -35,9 +41,11 @@ class EntityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateEntityRequest $request)
+    public function store(Create $request)
     {
         Entity::create($request->all());
+
+        return Redirect::to('/entity');
     }
 
     /**
@@ -49,14 +57,11 @@ class EntityController extends Controller
     public function show($id)
     {
         $entity = Entity::find($id);
-
         if (!$entity)
         {
             return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c�digo.'])],404);
         }
-
         return response()->json(['status'=>'ok','data'=>$entity],200);
-
     }
 
     /**
@@ -67,7 +72,13 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        return view('entities.edit');
+        $entity = Entity::find($id);
+
+        if (!$entity)
+        {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c�digo.'])],404);
+        }
+        return view('entities.edit', compact('entity'));
     }
 
     /**
@@ -77,9 +88,18 @@ class EntityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Update $request, $id)
     {
-        //
+
+        $entity = Entity::find($id);
+        if (!$entity)
+        {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c�digo.'])],404);
+        }
+        $entity->fill($request->all());
+        $entity->save();
+
+        return Redirect::to('/entity');
     }
 
     /**

@@ -1,36 +1,28 @@
-@inject('entity', 'App\Models\Entity')
-
 <!DOCTYPE html>
 
-{{ route('entity/' . $entity->id) }}
+@include('partials.errors')
 
-    {{--< form action="{{ route('/entity/' . $entity->id) }}" method="POST" accept-charset="UTF-8">--}}
+{!! Form::open( ['route' => ['entity.update', $entity->id], 'method' => 'put']) !!}
 
-    {{--@include('partials.errors')--}}
+    <p>
+        {!! Form::label('company', trans('forms.company') ) !!}
+        {!! Form::text('company', $entity->company) !!}
+    </p>
 
-    {{--{!! csrf_field() !!}--}}
+    <p>
+        {!! Form::label('first_name', trans('forms.first_name') ) !!}
+        {!! Form::text('first_name', $entity->first_name) !!}
+    </p>
 
-    {{--<p>--}}
-        {{--<label for="company">{{trans('forms.company')}} </label>--}}
-        {{--<input type="text" name="company" id="company" value="{{ old('company') }}">--}}
-    {{--</p>--}}
+    <p>
+        {!! Form::label('last_name', trans('forms.last_name') ) !!}
+        {!! Form::text('last_name', $entity->last_name) !!}
+    </p>
 
-    {{--<p>--}}
-        {{--<label for="first_name">{{trans('forms.first_name')}} </label>--}}
-        {{--<input type="text" name="first_name" id="first_name">--}}
-    {{--</p>--}}
+    <p>
+        {!! Form::submit(trans('forms.edit')) !!}
+    </p>
 
-    {{--<p>--}}
-        {{--<label for="last_name">{{trans('forms.last_name')}} </label>--}}
-        {{--<input type="text" name="last_name" id="last_name">--}}
-    {{--</p>--}}
-
-    {{--<p>--}}
-        {{--<button type="submit">--}}
-            {{--{{trans('forms.register')}}--}}
-        {{--</button>--}}
-    {{--</p>--}}
-
-    {{--</form>--}}
+    {!! Form::close() !!}
 
  </html>

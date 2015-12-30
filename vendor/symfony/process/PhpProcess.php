@@ -46,6 +46,12 @@ class PhpProcess extends Process
             $php .= ' '.ProcessUtils::escapeArgument($file);
             $script = null;
         }
+        if ('\\' !== DIRECTORY_SEPARATOR && null !== $php) {
+            // exec is mandatory to deal with sending a signal to the process
+            // see https://github.com/symfony/symfony/issues/5030 about prepending
+            // command with exec
+            $php = 'exec '.$php;
+        }
 
         parent::__construct($php, $cwd, $env, $script, $timeout, $options);
     }
@@ -61,7 +67,7 @@ class PhpProcess extends Process
     /**
      * {@inheritdoc}
      */
-    public function start($callback = null)
+    public function start(callable $callback = null)
     {
         if (null === $this->getCommandLine()) {
             throw new RuntimeException('Unable to find the PHP executable.');

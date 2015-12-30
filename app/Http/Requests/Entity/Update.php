@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Entity;
 
 use App\Http\Requests\Request;
 
-class CreateEntityRequest extends Request
+class Update extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class CreateEntityRequest extends Request
     public function rules()
     {
         return [
-            'company'      => ['required', 'min:6','unique:entities'],
-            'first_name'     => ['required','min:6' ],
+            'company'    => ['required', 'min:2'],
+            'first_name' => ['required','min:2' ],
             'last_name'  => ['required', 'min:6']
         ];
     }

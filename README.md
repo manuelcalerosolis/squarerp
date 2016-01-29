@@ -1,7 +1,7 @@
 # laravel
 A global ERP create in Laravel and PHP.
 
-Nuestra intención es crear un ERP ( https://es.wikipedia.org/wiki/Sistema_de_planificaci%C3%B3n_de_recursos_empresariales ), para las pequeñas y medianas empresas.
+Nuestra intención es crear un [ERP] ( https://es.wikipedia.org/wiki/Sistema_de_planificaci%C3%B3n_de_recursos_empresariales ), para las pequeñas y medianas empresas.
 
 El proyecto se basa en dos pilares fundamentales el framework Laravel ( https://laravel.com/ ) y Polymer ( https://www.polymer-project.org/ ).
 

@@ -15,7 +15,7 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', function () {
-        return view('home');
+        return view('/dashboard/home');
     });
 
     // esto debe estar dentro del midelware auth

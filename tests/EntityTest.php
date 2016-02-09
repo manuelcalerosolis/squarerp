@@ -15,7 +15,7 @@ class EntityTest extends TestCase
             ->type('watchdog', 'company')
             ->type('manuel', 'first_name')
             ->type('calero', 'last_name')
-            ->press('Register')
+            ->press(trans('forms.new'))
             ->seeInDatabase('entities', ['company' => 'watchdog']);
     }
 

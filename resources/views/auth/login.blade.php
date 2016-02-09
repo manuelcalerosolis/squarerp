@@ -6,8 +6,7 @@
 
     {{--<div>--}}
         {{--{{trans('forms.email')}}--}}
-        {{--<input type="email" name="email" >--}}
-        {{--value="{{ old('email') }}"--}}
+        {{--<input type="email" name="email" value="{{ old('email') }}">--}}
     {{--</div>--}}
 
     {{--<div>--}}
@@ -16,7 +15,7 @@
     {{--</div>--}}
 
     {{--<div>--}}
-        {{--<button type="submit">--}}
+        {{--<button type="submit" id="loginButton">--}}
             {{--{{trans('forms.login')}}--}}
         {{--</button>--}}
     {{--</div>--}}
@@ -55,7 +54,7 @@
 
 <div class="login-page">
 
-    {{--<h4>Login</h4>--}}
+    <h4>Login</h4>
 
     <div class="horizontal-section">
 
@@ -66,12 +65,18 @@
             @include('partials.errors')
 
             <paper-input name="email" label={!!trans('forms.email')!!} value={!! old("email") !!}></paper-input>
+
             <paper-input name="password" type="password" label={!!trans('forms.password')!!}></paper-input>
+
+            <br>
             <br>
 
-            <br><br><br>
             <paper-button raised
-                          onclick="clickHandler(event)">{!! trans('forms.login')!!}</paper-button>
+                          id="loginButton"
+                          onclick="clickHandler(event)">
+                {!! trans('forms.login')!!}
+            </paper-button>
+
         </form>
 
     </div>

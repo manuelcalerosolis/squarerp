@@ -7,7 +7,10 @@ class LoginTest extends TestCase
 
     use DatabaseTransactions;
 
-    public function testRegisterUserCreateFromForm()
+    /**
+     *
+     */
+    public function testRegisterUserCreateForm()
     {
         $this->visit('/auth/register')
             ->type('Taylor Otwell', 'name')
@@ -18,26 +21,36 @@ class LoginTest extends TestCase
             ->seeInDatabase('users', ['email' => 'taylor@laravel.com']);
     }
 
-    public function testLogoutAfterRegisterUserCreateFromForm()
+    /**
+     *
+     */
+    public function testLogoutAfterRegisterUserCreateForm()
     {
         $this->visit('/auth/logout')
             ->seePageIs('/');
     }
 
+
+    /**
+     *
+     */
     public function testLoginUserCreateFromForm()
     {
         $this->visit('/auth/login')
             ->type('taylor@laravel.com', 'email')
             ->type('secret', 'password')
-            ->press(trans('forms.login'))
+            ->press('loginButton')
             ->seePageIs('/home');
+//        ->press(trans('forms.login'))
     }
 
+    /**
+     *
+     */
     public function testLogOutAfterLoginUserCreateFromForm()
     {
         $this->visit('auth/logout')
             ->seePageIs('/');
     }
-
 }
 

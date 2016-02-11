@@ -247,7 +247,7 @@ class DOMCaster
     {
         $a += array(
             'name' => $dom->name,
-            'entities' => $dom->entities,
+            'entity' => $dom->entities,
             'notations' => $dom->notations,
             'publicId' => $dom->publicId,
             'systemId' => $dom->systemId,

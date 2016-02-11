@@ -10102,7 +10102,7 @@ var Preprocessor = require('./preprocessor'),
 var $ = UNICODE.CODE_POINTS,
     $$ = UNICODE.CODE_POINT_SEQUENCES;
 
-//Replacement code points for numeric entities
+//Replacement code points for numeric entity
 var NUMERIC_ENTITY_REPLACEMENTS = {
     0x00: 0xFFFD, 0x0D: 0x000D, 0x80: 0x20AC, 0x81: 0x0081, 0x82: 0x201A, 0x83: 0x0192, 0x84: 0x201E,
     0x85: 0x2026, 0x86: 0x2020, 0x87: 0x2021, 0x88: 0x02C6, 0x89: 0x2030, 0x8A: 0x0160, 0x8B: 0x2039,
@@ -17529,7 +17529,7 @@ var syntax = require("./lib/syntax"),
     astNodeFactory = require("./lib/ast-node-factory"),
     defaultFeatures = require("./lib/features"),
     Messages = require("./lib/messages"),
-    XHTMLEntities = require("./lib/xhtml-entities"),
+    XHTMLEntities = require("./lib/xhtml-entity"),
     StringMap = require("./lib/string-map"),
     commentAttachment = require("./lib/comment-attachment");
 
@@ -24854,7 +24854,7 @@ module.exports = {
 
 },{}],67:[function(require,module,exports){
 /**
- * @fileoverview The list of XHTML entities that are valid in JSX.
+ * @fileoverview The list of XHTML entity that are valid in JSX.
  * @author Nicholas C. Zakas
  * @copyright 2014 Nicholas C. Zakas. All rights reserved.
  *

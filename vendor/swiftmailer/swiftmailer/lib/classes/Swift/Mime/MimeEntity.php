@@ -48,7 +48,7 @@ interface Swift_Mime_MimeEntity extends Swift_Mime_CharsetObserver, Swift_Mime_E
     /**
      * Returns a unique ID for this entity.
      *
-     * For most entities this will likely be the Content-ID, though it has
+     * For most entity this will likely be the Content-ID, though it has
      * no explicit semantic meaning and can be considered an identifier for
      * programming logic purposes.
      *

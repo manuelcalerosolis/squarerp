@@ -177,7 +177,7 @@ class Crawler implements \Countable, \IteratorAggregate
         set_error_handler(function () {throw new \Exception();});
 
         try {
-            // Convert charset to HTML-entities to work around bugs in DOMDocument::loadHTML()
+            // Convert charset to HTML-entity to work around bugs in DOMDocument::loadHTML()
             $content = mb_convert_encoding($content, 'HTML-ENTITIES', $charset);
         } catch (\Exception $e) {
         }

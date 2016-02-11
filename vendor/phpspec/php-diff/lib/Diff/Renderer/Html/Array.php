@@ -216,7 +216,7 @@ class Diff_Renderer_Html_Array extends Diff_Renderer_Abstract
 	 * Make a string containing HTML safe for output on a page.
 	 *
 	 * @param string $string The string.
-	 * @return string The string with the HTML characters replaced by entities.
+	 * @return string The string with the HTML characters replaced by entity.
 	 */
 	private function htmlSafe($string)
 	{

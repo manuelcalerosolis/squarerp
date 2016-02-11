@@ -1,6 +1,7 @@
 @inject('entity', 'App\Models\Entity')
 
 <!DOCTYPE html>
+<html>
 
     <form action="{{ route('entity.update',$entity->id) }}" method="POST" accept-charset="UTF-8">
 

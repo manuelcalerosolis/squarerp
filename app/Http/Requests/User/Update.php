@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
 use App\Http\Requests\Request;
 
-class UpdateUserRequest extends Request
+class Update extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class UpdateUserRequest extends Request
     {
         return [
             'name'      => ['required', 'min:4'],
-            'email'     => ['required', 'email', 'unique:users,email,'.$this->id], // $this->route('user')],
+            'email'     => ['required', 'email', 'unique:users,email,'.$this->route('user')],
         ];
     }
 

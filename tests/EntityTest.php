@@ -16,7 +16,7 @@ class EntityTest extends TestCase
             ->type('manuel', 'first_name')
             ->type('calero', 'last_name')
             ->press(trans('forms.new'))
-            ->seeInDatabase('entities', ['company' => 'watchdog']);
+            ->seeInDatabase('entity', ['company' => 'watchdog']);
     }
 
 //    public function testEntityCreateErrorFromArray()

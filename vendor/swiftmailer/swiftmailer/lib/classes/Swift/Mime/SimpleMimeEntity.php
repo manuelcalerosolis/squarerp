@@ -167,7 +167,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_MimeEntity
     {
         $this->_setContentTypeInHeaders($type);
         // Keep track of the value so that if the content-type changes automatically
-        // due to added child entities, it can be restored if they are later removed
+        // due to added child entity, it can be restored if they are later removed
         $this->_userContentType = $type;
 
         return $this;

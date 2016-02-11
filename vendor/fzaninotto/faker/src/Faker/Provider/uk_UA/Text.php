@@ -4230,9 +4230,9 @@ EOT;
     Elements" means the following high-level license attributes as
     selected by Licensor and indicated in the title of this License:
     Attribution, ShareAlike. "Licensor" means the individual, individuals,
-    entity or entities that offer(s) the Work under the terms of this
+    entity or entity that offer(s) the Work under the terms of this
     License. "Original Author" means, in the case of a literary or
-    artistic work, the individual, individuals, entity or entities who
+    artistic work, the individual, individuals, entity or entity who
     created the Work or if no individual or entity can be identified, the
     publisher; and in addition (i) in the case of a performance the
     actors, singers, musicians, dancers, and other persons who act, sing,
@@ -4436,9 +4436,9 @@ EOT;
 
     This License and the rights granted hereunder will terminate
     automatically upon any breach by You of the terms of this License.
-    Individuals or entities who have received Adaptations or Collections
+    Individuals or entity who have received Adaptations or Collections
     from You under this License, however, will not have their licenses
-    terminated provided such individuals or entities remain in full
+    terminated provided such individuals or entity remain in full
     compliance with those licenses. Sections 1, 2, 5, 6, 7, and 8 will
     survive any termination of this License. Subject to the above terms
     and conditions, the license granted here is perpetual (for the

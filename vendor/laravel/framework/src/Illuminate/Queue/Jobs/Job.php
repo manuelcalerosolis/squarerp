@@ -154,7 +154,7 @@ abstract class Job
     }
 
     /**
-     * Resolve all of the queueable entities in the given payload.
+     * Resolve all of the queueable entity in the given payload.
      *
      * @param  mixed  $data
      * @return mixed

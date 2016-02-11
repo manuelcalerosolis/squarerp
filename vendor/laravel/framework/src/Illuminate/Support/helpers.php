@@ -452,7 +452,7 @@ if (! function_exists('dd')) {
 
 if (! function_exists('e')) {
     /**
-     * Escape HTML entities in a string.
+     * Escape HTML entity in a string.
      *
      * @param  \Illuminate\Contracts\Support\Htmlable|string  $value
      * @return string

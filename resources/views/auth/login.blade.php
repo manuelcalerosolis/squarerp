@@ -73,6 +73,7 @@
 
             <paper-button raised
                           id="loginButton"
+                          type="submit"
                           onclick="clickHandler(event)">
                 {!! trans('forms.login')!!}
             </paper-button>

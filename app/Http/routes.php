@@ -22,7 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
     // esto debe estar dentro del midelware auth
 
     Route::resource('user', 'UserController');
-    Route::resource('entity','EntityController');
+
+    Route::resource('entity', 'EntityController');
 
 });
 

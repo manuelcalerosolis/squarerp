@@ -96,7 +96,7 @@ abstract class Queue
     }
 
     /**
-     * Prepare any queueable entities for storage in the queue.
+     * Prepare any queueable entity for storage in the queue.
      *
      * @param  mixed  $data
      * @return mixed

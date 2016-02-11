@@ -5,22 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\User;
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\User\Create;
+use App\Http\Requests\User\Update;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return User::all();//Gestool::allClients()
+        return view('user.index');
     }
 
     public function create()
     {
-        return view('CreateUser');
+        return view('user.create');
     }
 
-    public function store(CreateUserRequest $request)
+    public function store(Create $request)
     {
         User::create($request->all());
         return ['created' => true];
@@ -33,18 +33,25 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        return view('EditUser');
+        $user = User::find($id);
+
+        if (!$user)
+        {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un usuario con ese c�digo.'])],404);
+        }
+
+        return view('user.edit', ['user' => $user]);
     }
 
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Update $request, $id)
     {
         $user = User::find($id);
         if (!$user)
         {
             return ['updated' => false];
         }
-
         $user->update($request->all());
+
         return ['updated' => true];
     }
 

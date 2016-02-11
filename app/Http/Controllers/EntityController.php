@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Entity;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\CreateEntityRequest;
+use App\Http\Requests\Entity\Create;
+use App\Http\Requests\Entity\Update;
 
 class EntityController extends Controller
 {
@@ -16,7 +17,7 @@ class EntityController extends Controller
      */
     public function index()
     {
-        return view('entities.index');
+        return view('entity.index');
     }
 
     /**
@@ -26,7 +27,7 @@ class EntityController extends Controller
      */
     public function create()
     {
-        return view('entities.create');
+        return view('entity.create');
     }
 
     /**
@@ -35,7 +36,7 @@ class EntityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateEntityRequest $request)
+    public function store(Create $request)
     {
         Entity::create($request->all());
     }
@@ -71,9 +72,9 @@ class EntityController extends Controller
 
         if (!$entity)
         {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c�digo.'])],404);
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c&oacute;digo.'])],404);
         }
-        return view('entities.edit');
+        return view('entity.edit');
     }
 
     /**
@@ -83,7 +84,7 @@ class EntityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Update $request, $id)
     {
         //
     }

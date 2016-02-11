@@ -16,6 +16,7 @@ return [
     'login' => 'Iniciar sesión',
     'reset' => 'Resetear',
     'register' => 'Registrar',
+    'update' => 'Actualizar',
     'edit' => 'Editar',
     'name' => 'Nombre',
     'email' => 'Correo electrónico',

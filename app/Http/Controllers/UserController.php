@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\User;
 use App\Http\Requests\User\Create;
 use App\Http\Requests\User\Update;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -23,7 +23,8 @@ class UserController extends Controller
     public function store(Create $request)
     {
         User::create($request->all());
-        return ['created' => true];
+
+        return Redirect::to('user');
     }
 
     public function show($id)
@@ -33,31 +34,24 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
-
-        if (!$user)
-        {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un usuario con ese c�digo.'])],404);
-        }
+        $user = User::findOrFail($id);
 
         return view('user.edit', ['user' => $user]);
     }
 
     public function update(Update $request, $id)
     {
-        $user = User::find($id);
-        if (!$user)
-        {
-            return ['updated' => false];
-        }
+        $user = User::findOrFail($id);
+
         $user->update($request->all());
 
-        return ['updated' => true];
+        return Redirect::to('user');
     }
 
     public function destroy($id)
     {
         User::destroy($id);
-        return ['deleted' => true ];
+
+        return Redirect::to('user');
     }
 }

@@ -5,19 +5,11 @@
 
     <div class="container">
 
-        {!! Form::open( ['route' => [ 'user.update', $user->id ], 'method' => 'put' ] ) !!}
-
         @include('partials.errors')
 
-        <p>
-            {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name', $user->name) !!}
-        </p>
+        {!! Form::open( ['route' => [ 'user.update', $user->id ], 'method' => 'put' ] ) !!}
 
-        <p>
-            {!! Form::label('email', 'Mail:')!!}
-            {!! Form::email('email', $user->email)!!}
-        </p>
+        @include('user.fields')
 
         <p>
             {!! Form::submit(trans('update')) !!}

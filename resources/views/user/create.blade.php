@@ -8,15 +8,7 @@
 
         {!! Form::open( ['route' => 'user.store', 'method' => 'post'] ) !!}
 
-            <p>
-                {!! Form::label('name', 'Name:') !!}
-                {!! Form::text('name') !!}
-            </p>
-
-            <p>
-                {!! Form::label('email', 'Mail:')!!}
-                {!! Form::email('email')!!}
-            </p>
+            @include('user.fields')
 
             <p>
                 {!! Form::label('password','Password:')!!}

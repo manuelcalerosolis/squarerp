@@ -1,5 +1,3 @@
-{{--@inject('entity', 'App\Models\Entity')--}}
-
 <!DOCTYPE html>
 <html>
 

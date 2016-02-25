@@ -4,6 +4,8 @@
 <body>
     <div class="container">
 
+        @include('partials.errors')
+
         {!! Form::open( ['route' => 'user.store', 'method' => 'post'] ) !!}
 
             <p>
@@ -27,18 +29,10 @@
             </p>
 
             <p>
-            {!! Form::submit('Register') !!}
+            {!! Form::submit('register') !!}
             </p>
 
         {!! Form::close() !!}
-
-        @if (isset($errors) and $errors->any())
-            <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        @endif
 
     </div>
 

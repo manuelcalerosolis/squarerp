@@ -2,16 +2,23 @@
 
 <!DOCTYPE html>
 
+<p>
+    {!! link_to_route('entity.create', $title = trans('forms.new_entity')) !!}
+</p>
+
 <p>company - first_name - last_name</p>
 
 @foreach($entities::all() as $entity)
+
     <p>
         {{ $entity->company }} - {!! $entity->first_name !!} - {!! $entity->last_name !!}
-        {!! link_to_route('entity.edit', $title = 'Editar', $parameters = $entity->id) !!}
+        {!! link_to_route('entity.edit', $title = trans('forms.edit'), $parameters = $entity->id) !!}
+
         {!! Form::open(array('route' => array('entity.destroy', $entity->id), 'method' => 'DELETE')) !!}
         <button type="submit">Eliminar</button>
         {!! Form::close() !!}
     </p>
-@endforeach
+
+    @endforeach
 
 </html>

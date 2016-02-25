@@ -23,6 +23,10 @@ return [
     'password' => 'Password',
     'repeat_password' => 'Repeat password',
     'reset_password' => 'Reset password',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
+    'new_entity' => 'New entity',
+    'company' => 'Company',
+    'first_name' => 'Name',
+    'last_name' => 'Last name'
 
 ];

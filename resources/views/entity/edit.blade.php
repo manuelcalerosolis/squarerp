@@ -1,35 +1,26 @@
-@inject('entity', 'App\Models\Entity')
+{{--@inject('entity', 'App\Models\Entity')--}}
 
 <!DOCTYPE html>
 <html>
 
-    <form action="{{ route('entity.update',$entity->id) }}" method="POST" accept-charset="UTF-8">
+<body>
+
+<div class="container">
 
     @include('partials.errors')
 
-    {!! csrf_field() !!}
+    {!! Form::open( ['route' => [ 'entity.update', $entity->id ], 'method' => 'put' ] ) !!}
+
+    @include('entity.fields')
 
     <p>
-        <label for="company">{{trans('forms.company')}} </label>
-        <input type="text" name="company" id="company" value="{!! old('company') !!}">
+        {!! Form::submit(trans('update')) !!}
     </p>
 
-    <p>
-        <label for="first_name">{{trans('forms.first_name')}} </label>
-        <input type="text" name="first_name" id="first_name">
-    </p>
+    {!! Form::close() !!}
 
-    <p>
-        <label for="last_name">{{trans('forms.last_name')}} </label>
-        <input type="text" name="last_name" id="last_name">
-    </p>
+</div>
 
-    <p>
-        <button type="submit">
-            {{trans('forms.register')}}
-        </button>
-    </p>
+</body>
 
-    </form>
-
- </html>
+</html>

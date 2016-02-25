@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entity;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\Entity\Create;
 use App\Http\Requests\Entity\Update;
+use Illuminate\Support\Facades\Redirect;
 
 class EntityController extends Controller
 {
@@ -39,6 +39,9 @@ class EntityController extends Controller
     public function store(Create $request)
     {
         Entity::create($request->all());
+
+        return Redirect::to('entity');
+
     }
 
     /**
@@ -68,13 +71,9 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity = Entity::find($id);
+        $entity = Entity::findOrFail($id);
 
-        if (!$entity)
-        {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c&oacute;digo.'])],404);
-        }
-        return view('entity.edit');
+        return view('entity.edit', ['entity' => $entity]);
     }
 
     /**
@@ -86,7 +85,11 @@ class EntityController extends Controller
      */
     public function update(Update $request, $id)
     {
-        //
+        $entity = Entity::findOrFail($id);
+
+        $entity->update($request->all());
+
+        return Redirect::to('entity');
     }
 
     /**

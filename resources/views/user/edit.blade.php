@@ -20,7 +20,7 @@
         </p>
 
         <p>
-        {!! Form::submit('Register') !!}
+            {!! Form::submit(trans('update')) !!}
         </p>
 
         {!! Form::close() !!}

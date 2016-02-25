@@ -23,6 +23,9 @@ return [
     'password' => 'Contraseña',
     'repeat_password' => 'Repetir contraseña',
     'reset_password' => 'Resetear contraseña',
-    'submit' => 'Enviar'
-
+    'submit' => 'Enviar',
+    'new_entity' => 'Nueva entidad',
+    'company' => 'Compañia',
+    'first_name' => 'Nombre',
+    'last_name' => 'Apellidos'
 ];

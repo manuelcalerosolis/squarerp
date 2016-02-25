@@ -1,18 +1,25 @@
 <!DOCTYPE html>
+<html>
 
-    @inject('entity', 'App\Models\Entity')
+<body>
 
-    @include('partials.errors')
+    <div class="container">
 
-    {!! Form::open( ['route' => 'entity.store'] ) !!}
+        @include('partials.errors')
 
-    @include('entity.fields')
+        {!! Form::open( ['route' => 'entity.store', 'method' => 'post'] ) !!}
 
-    <p>
-        {!! Form::submit(trans('forms.new')) !!}
-    </p>
+        @include('entity.fields')
 
-    {!! Form::close() !!}
+        <p>
+            {!! Form::submit(trans('forms.new')) !!}
+        </p>
+
+        {!! Form::close() !!}
+
+    </div>
+
+</body>
 
 </html>
 

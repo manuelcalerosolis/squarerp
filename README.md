@@ -1,4 +1,4 @@
-# laravel
+# SquarERP
 A global ERP create in Laravel and PHP.
 
 Nuestra intención es crear un [ERP] ( https://es.wikipedia.org/wiki/Sistema_de_planificaci%C3%B3n_de_recursos_empresariales ), para las pequeñas y medianas empresas.

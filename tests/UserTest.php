@@ -4,8 +4,19 @@ use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
-
     use DatabaseTransactions;
+
+    public function testUserCreateErrorLenName()
+    {
+        $data = [
+            'name' => 'joe',
+            'email' => 'joe@doe.com',
+            'password' => '12345678',
+            'password_confirmation' => '12345678'
+        ];
+        $this->post('/user', $data)
+            ->seeStatusCode(302);
+    }
 
     public function testUserCreateFromForm()
     {

@@ -39,9 +39,8 @@ class LoginTest extends TestCase
         $this->visit('/auth/login')
             ->type('taylor@laravel.com', 'email')
             ->type('secret', 'password')
-            ->press('loginButton')
+            ->press(trans('forms.login'))
             ->seePageIs('/home');
-//        ->press(trans('forms.login'))
     }
 
     /**

@@ -1,8 +1,13 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+@include('partials.errors')
+
 <form method="POST" action="/auth/login">
 
     {!! csrf_field() !!}
-
-    @include('partials.errors')
 
     <div>
         {{trans('forms.email')}}
@@ -21,6 +26,10 @@
     </div>
 
 </form>
+
+</body>
+
+</html>
 
 {{--<!DOCTYPE html>--}}
 {{--<html>--}}

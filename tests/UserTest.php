@@ -1,10 +1,12 @@
 <?php
 
+use \Illuminate\Foundation\Testing\WithoutMiddleware;
 use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
     use DatabaseTransactions;
+    use WithoutMiddleware;
 
     public function testUserCreateErrorLenName()
     {

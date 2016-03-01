@@ -33,6 +33,12 @@ Para la creación de la base de datos de desarrollo.
 php artisan migrate
 ```
 
+Para completar las bases de datos con registros de pruebas.
+
+```php
+php artisan db:seed
+```
+
 Para los test utilizamos sqlite 
  
 ```php

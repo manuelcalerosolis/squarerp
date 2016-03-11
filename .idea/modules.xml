@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SquareERP.iml" filepath="$PROJECT_DIR$/.idea/SquareERP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/laravel.iml" filepath="$PROJECT_DIR$/.idea/laravel.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/squarerp.iml" filepath="$PROJECT_DIR$/.idea/squarerp.iml" />
     </modules>
   </component>

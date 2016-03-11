@@ -13,19 +13,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', function () {
         return view('/dashboard/home');
     });
 
-    // esto debe estar dentro del midelware auth
+    Route::resource('entity', 'EntityController');
 
     Route::resource('user', 'UserController');
 
-    Route::resource('entity', 'EntityController');
+    Route::resource('address', 'AddressController');
 
 });
+
 
 // demo de polymer
 

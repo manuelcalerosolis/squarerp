@@ -20,4 +20,10 @@ class Address extends Model
      */
     protected $fillable = ['company', 'first_name', 'last_name', 'address1', 'address2', 'postal_code', 'city', 'other', 'phone', 'phone_mobile', 'active'];
 
+    public function entities()
+    {
+        return $this->belongsToMany('App\Models\Entity', 'entities_addresses' );
+    }
+
+
 }

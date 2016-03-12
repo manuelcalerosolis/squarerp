@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Address;
 use App\Http\Requests\Address\Create;
 use App\Http\Requests\Address\Update;
+use App\Models\Entity;
 use Illuminate\Support\Facades\Redirect;
 
 class AddressController extends Controller
@@ -36,7 +37,7 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request)
+    public function store(Create $request, Entity $entity )
     {
         Address::create($request->all());
 

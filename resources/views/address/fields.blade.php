@@ -47,4 +47,3 @@
         {!! Form::label('phone_mobile', trans('forms.phone_mobile') ) !!}
         {!! Form::text('phone_mobile', ( isset( $address ) ? $address->phone_mobile : null ) ) !!}
     </p>
-    

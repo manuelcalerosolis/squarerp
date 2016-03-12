@@ -41,7 +41,6 @@ class EntityController extends Controller
         Entity::create($request->all());
 
         return Redirect::to('entity');
-
     }
 
     /**
@@ -60,7 +59,6 @@ class EntityController extends Controller
         }
 
         return response()->json(['status'=>'ok','data'=>$entity],200);
-
     }
 
     /**

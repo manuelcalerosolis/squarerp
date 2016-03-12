@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <p>
-    {!! link_to_route('address.create', $title = trans('forms.new_address')) !!}
+     {!! link_to_route('address.create', $title = trans('forms.new_address')) !!}
 </p>
 
 <p>company - first_name - last_name - address1 - address2</p>
@@ -18,7 +18,6 @@
                             'method' => 'DELETE'] ) !!}
             <button type="submit">Eliminar</button>
         {!! Form::close() !!}
-
     </p>
 
     @endforeach

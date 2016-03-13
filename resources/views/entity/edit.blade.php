@@ -19,7 +19,7 @@
         {!! Form::label('direcciones', 'direcciones') !!}
     </p>
 
-    @foreach($entity->addresses() as $address)
+    @foreach($entity->addresses as $address)
 
         <p>
             {!! $address->company !!} - {!! $address->first_name !!} - {!! $address->last_name !!} - {!! $address->address1 !!} - {!! $address->address2 !!}

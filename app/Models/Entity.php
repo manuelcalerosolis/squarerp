@@ -24,7 +24,9 @@ class Entity extends Model
      */
     public function addresses()
     {
-        return $this->belongsToMany('App\Models\Address', 'entities_addresses');
+        $addresses = $this->belongsToMany('App\Models\Address', 'entities_addresses');
+
+        return $addresses;
     }
     
 }

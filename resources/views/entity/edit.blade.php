@@ -10,7 +10,7 @@
     {!! Form::open( ['route' => [ 'entity.update', $entity->id ], 'method' => 'put' ] ) !!}
 
     <p>
-        {!! Form::label('company', $entity->id ) !!}
+        {!! Form::label('entity_id', $entity->id ) !!}
     </p>
 
     @include('entity.fields')

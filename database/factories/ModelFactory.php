@@ -19,7 +19,7 @@ $factory->define(App\Models\Entity::class, function(Faker\Generator $faker){
 
 $factory->define(App\Models\Address::class, function(Faker\Generator $faker){
     return[
-        'company' => $faker->company,
+        'name' => $faker->name,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'address1' => $faker->address,
@@ -27,6 +27,5 @@ $factory->define(App\Models\Address::class, function(Faker\Generator $faker){
         'postal_code' => $faker->postcode,
         'city' => $faker->city,
         'phone' => $faker->phoneNumber,
-        'phone_mobile' => $faker->phoneNumber,
-        'active' => true ];
+        'phone_mobile' => $faker->phoneNumber];
 });

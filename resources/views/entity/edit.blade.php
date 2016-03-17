@@ -22,13 +22,13 @@
     @foreach($entity->addresses as $address)
 
         <p>
-            {!! $address->company !!} - {!! $address->first_name !!} - {!! $address->last_name !!} - {!! $address->address1 !!} - {!! $address->address2 !!}
+            {!! $address->name !!} - {!! $address->first_name !!} - {!! $address->last_name !!} - {!! $address->address1 !!} - {!! $address->address2 !!}
         </p>
 
     @endforeach
 
     <p>
-        {!! link_to_route('address.create', $title = trans('forms.new_address')) !!}
+        {!! link_to_route('address.create', $title = trans('forms.new_address'), $entity) !!}
     </p>
 
     <p>

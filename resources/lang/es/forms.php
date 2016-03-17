@@ -26,6 +26,7 @@ return [
     'submit' => 'Enviar',
     'new_entity' => 'Nueva entidad',
     'company' => 'Compañia',
+    'address' => 'Dirección',
     'first_name' => 'Nombre',
     'last_name' => 'Apellidos'
 ];

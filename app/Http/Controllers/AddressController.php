@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class AddressController extends Controller
 {
+    public $entity;
+
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +28,11 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Entity $entity)
     {
+
+        $this->entity = $entity;
+
         return view('address.create');
     }
 
@@ -37,9 +42,12 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request, Entity $entity )
+    public function store(Create $request )
     {
         Address::create($request->all());
+
+        if ( isset($this->entity) );
+            dd($this->entity);
 
         return Redirect::to('address');
 

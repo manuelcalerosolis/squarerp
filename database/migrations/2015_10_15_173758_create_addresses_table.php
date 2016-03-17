@@ -14,7 +14,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company')->nullable();
+            $table->string('name')->nullable();
             $table->string('first_name', 32);
             $table->string('last_name', 32)->nullable();
             $table->string('address1', 128);
@@ -24,7 +24,7 @@ class CreateAddressesTable extends Migration
             $table->string('other')->nullable();
             $table->string('phone', 32)->nullable();
             $table->string('phone_mobile', 32)->nullable();
-            $table->boolean('active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
 

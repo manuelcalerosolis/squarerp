@@ -12,3 +12,4 @@
         {!! Form::label('last_name', trans('forms.last_name') ) !!}
         {!! Form::text('last_name', ( isset( $entity ) ? $entity->last_name : null ) ) !!}
     </p>
+

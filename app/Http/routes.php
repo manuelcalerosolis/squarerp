@@ -14,7 +14,6 @@ Route::get('/', function () {
 });
 
 
-
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', function () {
@@ -28,7 +27,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('address', 'AddressController');
 
 });
-
 
 // demo de polymer
 

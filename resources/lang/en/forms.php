@@ -26,7 +26,8 @@ return [
     'submit' => 'Submit',
     'new_entity' => 'New entity',
     'company' => 'Company',
-    'first_name' => 'Name',
+    'address' => 'Address',
+    'first_name' => 'First name',
     'last_name' => 'Last name'
 
 ];

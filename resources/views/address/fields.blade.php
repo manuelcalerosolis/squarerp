@@ -1,6 +1,6 @@
     <p>
-        {!! Form::label('company', trans('forms.company') ) !!}
-        {!! Form::text('company', ( isset( $address ) ? $address->company : null ) ) !!}
+        {!! Form::label('address', trans('forms.address') ) !!}
+        {!! Form::text('name', ( isset( $address ) ? $address->name : null ) ) !!}
     </p>
 
     <p>

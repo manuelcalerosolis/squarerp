@@ -29,8 +29,7 @@ class Address extends Model
      */
     public function entities()
     {
-        return $this->belongsToMany('App\Models\Entity', 'entities_addresses' );
+        return $this->belongsTo('App\Models\Entity');
     }
-
 
 }

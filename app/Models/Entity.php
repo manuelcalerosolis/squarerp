@@ -17,14 +17,14 @@ class Entity extends Model
     /**
      * @var array
      */
-    protected $fillable = ['company', 'first_name', 'last_name', 'active'];
+    protected $fillable = ['company', 'first_name', 'last_name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function addresses()
     {
-        return $this->belongsToMany('App\Models\Address')->withTimestamps();
+        return $this->hasMany('App\Models\Address');
     }
-    
+
 }

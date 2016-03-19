@@ -15,15 +15,11 @@
 
     @include('entity.fields')
 
-    <p>
-        {!! Form::label('direcciones', 'direcciones') !!}
-    </p>
-
     @foreach($entity->addresses as $address)
 
-        <p>
-            {!! $address->name !!} - {!! $address->first_name !!} - {!! $address->last_name !!} - {!! $address->address1 !!} - {!! $address->address2 !!}
-        </p>
+    <p>
+        {!! $address->name !!}
+    </p>
 
     @endforeach
 

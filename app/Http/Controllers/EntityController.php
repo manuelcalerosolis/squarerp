@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Entity;
 use App\Http\Requests;
 use App\Http\Requests\Entity\Create;
@@ -69,9 +70,10 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity = Entity::findOrFail($id);
+        $entity     = Entity::findOrFail($id);
+//        $addresses  = $entity->addresses->lists('name', 'id');
 
-        return view('entity.edit', ['entity' => $entity]);
+        return view('entity.edit', ['entity'=>$entity]);
     }
 
     /**

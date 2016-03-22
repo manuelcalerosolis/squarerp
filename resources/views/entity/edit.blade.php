@@ -15,13 +15,10 @@
 
     @include('entity.fields')
 
-    @foreach($entity->addresses as $address)
-
     <p>
-        {!! $address->name !!}
+        {!! Form::label('addresses', 'addresses' ) !!}
+        {!! Form::select('addresses', $entity->addresses->lists('name'), null, ['multiple'=>'multiple', 'name'=>'addresses[]'] ) !!}
     </p>
-
-    @endforeach
 
     <p>
         {!! link_to_route('address.create', $title = trans('forms.new_address'), $entity) !!}

@@ -27,10 +27,9 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Entity $entity)
     {
-
-        return view('address.create');
+        return view('address.create', ['entity', $entity]);
     }
 
     /**

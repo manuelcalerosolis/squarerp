@@ -9,6 +9,10 @@ use App\Http\Requests\Address\Update;
 use App\Models\Entity;
 use Illuminate\Support\Facades\Redirect;
 
+/**
+ * Class AddressController
+ * @package App\Http\Controllers
+ */
 class AddressController extends Controller
 {
 
@@ -27,24 +31,27 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Entity $entity)
+    public function create($entity)
     {
-        return view('address.create', ['entity', $entity]);
+        return view('address.create', ['entity' => $entity]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Create|\Illuminate\Http\Request $request
+     * @param Entity $entity
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request )
+    public function store(Create $request, Entity $entity )
     {
+        dd($entity);
 
-        Address::create($request->all());
+        $address = Address::create($request->all());
+
+        $address->entities()->associate($entity);
 
         return Redirect::to('address');
-
     }
 
     /**

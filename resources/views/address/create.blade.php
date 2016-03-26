@@ -7,7 +7,7 @@
 
         @include('partials.errors')
 
-        {!! Form::open( ['route' => 'address.store', 'method' => 'post'] ) !!}
+        {!! Form::open( ['route' => ['address.store', $entity], 'method' => 'post'] ) !!}
 
         @include('address.fields')
 

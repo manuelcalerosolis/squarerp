@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class EntityController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

@@ -13,6 +13,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('users/{user}', function(App\Models\User $user){
+    return $user;
+});
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -20,11 +23,23 @@ Route::group(['middleware' => 'auth'], function () {
         return view('/dashboard/home');
     });
 
-    Route::resource('entity', 'EntityController');
-
     Route::resource('user', 'UserController');
 
-    Route::resource('address', 'AddressController');
+    Route::resource('entity', 'EntityController');
+
+
+
+
+
+
+
+//    Route::resource('address', 'AddressController');
+    Route::get('entity.address/{entity}', ['uses' => 'AddressController@create', 'as' => 'entity.address.create']);
+
+//    Route::get('entity.address/{entity}', function(App\Models\Entity $entity){
+//        return view('address.create', ['entity' => $entity]);
+//    });
+    Route::post('address/{id}', ['uses' => 'AddressController@store', 'as' => 'address.store']);
 
 });
 

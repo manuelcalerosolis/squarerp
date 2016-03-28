@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+{!! dd( $entity )!!}
+
 <body>
 
     <div class="container">

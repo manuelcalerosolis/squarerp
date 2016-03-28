@@ -22,7 +22,7 @@ class Address extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'first_name', 'last_name', 'address1', 'address2', 'postal_code', 'city', 'other', 'phone', 'phone_mobile'];
+    protected $fillable = ['entity_id', 'name', 'first_name', 'last_name', 'address1', 'address2', 'postal_code', 'city', 'other', 'phone', 'phone_mobile'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

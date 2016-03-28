@@ -12,15 +12,15 @@ class CreateAddressEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_entity', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('address_id')->unsigned()->index;
-            $table->integer('entity_id')->unsigned()->index;
-            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
-            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+//        Schema::create('address_entity', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('address_id')->unsigned()->index;
+//            $table->integer('entity_id')->unsigned()->index;
+//            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
+//            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
+//            $table->softDeletes();
+//            $table->timestamps();
+//        });
 
     }
 
@@ -31,6 +31,6 @@ class CreateAddressEntityTable extends Migration
      */
     public function down()
     {
-        Schema::drop('address_entity');
+//        Schema::drop('address_entity');
     }
 }

@@ -21,7 +21,7 @@
     </p>
 
     <p>
-        {!! link_to_route('address.create', trans('forms.new_address'), [$entity->id]) !!}
+        {!! link_to_route('entity.address.create', trans('forms.new_address'), [$entity]) !!}
     </p>
 
     <p>

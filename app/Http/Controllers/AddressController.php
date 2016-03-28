@@ -31,7 +31,7 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($entity)
+    public function create(Entity $entity)
     {
         return view('address.create', ['entity' => $entity]);
     }
@@ -43,13 +43,13 @@ class AddressController extends Controller
      * @param Entity $entity
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request, Entity $entity )
+    public function store(Create $request, $entity_id )
     {
-        dd($entity);
+        $request->merge([
+            'entity_id' => $entity_id
+        ]);
 
-        $address = Address::create($request->all());
-
-        $address->entities()->associate($entity);
+        Address::create($request->all());
 
         return Redirect::to('address');
     }

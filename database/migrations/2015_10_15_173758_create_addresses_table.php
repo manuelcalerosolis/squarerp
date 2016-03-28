@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAddressesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -12,7 +13,8 @@ class CreateAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table)
+        {
             $table->increments('id');
             $table->integer('entity_id')->unsigned()->index();
             $table->string('name')->nullable();
@@ -27,6 +29,11 @@ class CreateAddressesTable extends Migration
             $table->string('phone_mobile', 32)->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('entity_id')
+                ->references('id')
+                ->on('entities')
+                ->onDelete('cascade');
         });
 
     }

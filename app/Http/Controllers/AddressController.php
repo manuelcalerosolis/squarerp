@@ -43,12 +43,8 @@ class AddressController extends Controller
      * @param Entity $entity
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request, $entity_id )
+    public function store(Create $request, Entity $entity )
     {
-        $request->merge([
-            'entity_id' => $entity_id
-        ]);
-
         Address::create($request->all());
 
         return Redirect::to('address');

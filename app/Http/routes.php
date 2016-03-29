@@ -27,19 +27,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('entity', 'EntityController');
 
-
-
-
-
-
-
 //    Route::resource('address', 'AddressController');
     Route::get('entity.address/{entity}', ['uses' => 'AddressController@create', 'as' => 'entity.address.create']);
+    Route::post('entity.address/{entity}', ['uses' => 'AddressController@store', 'as' => 'entity.address.store']);
 
 //    Route::get('entity.address/{entity}', function(App\Models\Entity $entity){
 //        return view('address.create', ['entity' => $entity]);
 //    });
-    Route::post('address/{id}', ['uses' => 'AddressController@store', 'as' => 'address.store']);
+//    Route::post('address/{id}', ['uses' => 'AddressController@store', 'as' => 'address.store']);
 
 });
 

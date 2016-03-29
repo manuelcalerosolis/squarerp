@@ -24,7 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::resource('user', 'UserController');
-
     Route::resource('entity', 'EntityController');
 
 //    Route::resource('address', 'AddressController');

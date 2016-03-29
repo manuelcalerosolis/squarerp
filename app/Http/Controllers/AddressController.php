@@ -45,9 +45,9 @@ class AddressController extends Controller
      */
     public function store(Create $request, Entity $entity )
     {
-        Address::create($request->all());
+        $entity->addresses()->create( $request->all() );
 
-        return Redirect::to('address');
+        return redirect()->route('entity.edit', [$entity->id]);
     }
 
     /**

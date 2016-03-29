@@ -71,8 +71,7 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity     = Entity::findOrFail($id);
-//        $addresses  = $entity->addresses->lists('name', 'id');
+        $entity = Entity::findOrFail($id);
 
         return view('entity.edit', ['entity'=>$entity]);
     }

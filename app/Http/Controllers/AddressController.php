@@ -51,24 +51,6 @@ class AddressController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $address = Address::find($id);
-
-        if (!$address)
-        {
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra una entidad con ese c�digo.'])],404);
-        }
-
-        return response()->json(['status'=>'ok','data'=>$address],200);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

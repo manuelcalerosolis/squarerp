@@ -12,7 +12,7 @@
     @include('address.fields')
 
     <p>
-        {!! Form::submit(trans('update')) !!}
+        {!! Form::submit(trans('forms.update')) !!}
     </p>
 
     {!! Form::close() !!}

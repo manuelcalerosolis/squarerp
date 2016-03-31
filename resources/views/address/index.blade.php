@@ -14,9 +14,8 @@
         {!! $address->company !!} - {!! $address->first_name !!} - {!! $address->last_name !!} - {!! $address->address1 !!} - {!! $address->address2 !!}
         {!! link_to_route('address.edit', $title = trans('forms.edit'), $parameters = $address->id) !!}
 
-        {!! Form::open( [   'route' => ['address.destroy', $address->id],
-                            'method' => 'DELETE'] ) !!}
-            <button type="submit">Eliminar</button>
+        {!! Form::open( ['route' => ['address.destroy', $address->id], 'method' => 'DELETE'] ) !!}
+            <button type="submit">{!! trans('forms.delete') !!}</button>
         {!! Form::close() !!}
     </p>
 

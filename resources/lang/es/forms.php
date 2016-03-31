@@ -17,6 +17,7 @@ return [
     'reset' => 'Resetear',
     'register' => 'Registrar',
     'update' => 'Actualizar',
+    'delete' => 'Eliminar',
     'edit' => 'Editar',
     'name' => 'Nombre',
     'email' => 'Correo electrónico',

@@ -15,7 +15,7 @@
         {!! link_to_route('entity.edit', $title = trans('forms.edit'), $parameters = $entity->id) !!}
 
         {!! Form::open( [ 'route' => ['entity.destroy', $entity->id], 'method' => 'DELETE'] ) !!}
-            <button type="submit">Eliminar</button>
+            <button type="submit">{!! trans('forms.delete') !!}</button>
         {!! Form::close() !!}
 
     </p>

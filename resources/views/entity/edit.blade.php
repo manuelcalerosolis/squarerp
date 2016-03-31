@@ -16,8 +16,8 @@
         @foreach($entity->addresses as $address )
             <li>
                 {!! Form::label('addresses', $address->name ) !!}
-                {!! link_to_route('entity.address.edit', trans('update'), [$address->id, $entity]) !!}
-                {!! link_to_route('entity.address.destroy', trans('delete'), [$address->id, $entity]) !!}
+                {!! link_to_route('entity.address.edit', trans('forms.update'), [$address->id, $entity]) !!}
+                {!! link_to_route('entity.address.destroy', trans('forms.delete'), [$address->id, $entity]) !!}
             </li>
         @endforeach
         </ul>
@@ -29,7 +29,7 @@
     </p>
 
     <p>
-        {!! Form::submit(trans('update')) !!}
+        {!! Form::submit(trans('forms.update')) !!}
     </p>
 
     {!! Form::close() !!}

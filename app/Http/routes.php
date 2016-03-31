@@ -17,7 +17,7 @@ Route::get('users/{user}', function(App\Models\User $user){
     return $user;
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/home', function () {
         return view('/dashboard/home');
@@ -30,10 +30,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('entity.address', ['uses' => 'AddressController@index', 'as' => 'entity.address.store']);
     Route::get('entity.address/{entity}', ['uses' => 'AddressController@create', 'as' => 'entity.address.create']);
     Route::post('entity.address/{entity}', ['uses' => 'AddressController@store', 'as' => 'entity.address.store']);
-    Route::delete('entity.address/{address}', ['uses' => 'AddressController@destroy', 'as' => 'entity.address.destroy']);
-    Route::put('entity.address/{address}', ['uses' => 'AddressController@update', 'as' => 'entity.address.update']);
+//    Route::delete('entity.address/{address}/{entity}', ['uses' => 'AddressController@destroy', 'as' => 'entity.address.destroy']);
+    Route::put('entity.address/{address}/{entity}', ['uses' => 'AddressController@update', 'as' => 'entity.address.update']);
     Route::get('entity.address/{address}', ['uses' => 'AddressController@show', 'as' => 'entity.address.show']);
-    Route::get('entity.address/{address}/edit', ['uses' => 'AddressController@edit', 'as' => 'entity.address.edit']);
+    Route::get('entity.address/{address}/edit/{entity}', ['uses' => 'AddressController@edit', 'as' => 'entity.address.edit']);
+    Route::get('entity.address/{address}/destroy/{entity}', ['uses' => 'AddressController@destroy', 'as' => 'entity.address.destroy']);
 });
 
 // demo de polymer

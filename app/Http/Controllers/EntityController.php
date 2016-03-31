@@ -73,7 +73,7 @@ class EntityController extends Controller
     {
         $entity = Entity::findOrFail($id);
 
-        return view('entity.edit', ['entity'=>$entity]);
+        return view('entity.edit', ['entity' => $entity]);
     }
 
     /**

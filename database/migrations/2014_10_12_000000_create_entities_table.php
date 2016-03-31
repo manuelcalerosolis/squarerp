@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Class CreateEntitiesTable
  */
+
 class CreateEntitiesTable extends Migration
 {
     /**
@@ -14,7 +15,8 @@ class CreateEntitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entities', function (Blueprint $table) {
+        Schema::create('entities', function (Blueprint $table)
+        {
             $table->increments('id');
             $table->string('company')->nullable();
             $table->string('first_name', 32);

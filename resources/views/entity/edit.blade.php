@@ -9,15 +9,19 @@
 
     {!! Form::open( ['route' => [ 'entity.update', $entity->id ], 'method' => 'put' ] ) !!}
 
-    <p>
-        {!! Form::label('entity_id', $entity->id ) !!}
-    </p>
-
     @include('entity.fields')
 
     <p>
-        {!! Form::label('addresses', 'addresses' ) !!}
-        {!! Form::select('addresses', $entity->addresses->lists('name'), null, ['multiple'=>'multiple', 'name'=>'addresses[]'] ) !!}
+        <ul>
+        @foreach($entity->addresses as $address )
+            <li>
+                {!! Form::label('addresses', $address->name ) !!}
+                {!! link_to_route('entity.address.edit', trans('update'), [$address->id, $entity]) !!}
+                {!! link_to_route('entity.address.destroy', trans('delete'), [$address->id, $entity]) !!}
+            </li>
+        @endforeach
+        </ul>
+        {{--{!! Form::select('addresses', $entity->addresses->lists('name'), null, ['multiple' => 'multiple', 'name' => 'addresses[]'] ) !!}--}}
     </p>
 
     <p>

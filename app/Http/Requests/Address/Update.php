@@ -24,7 +24,7 @@ class Update extends Request
     public function rules()
     {
         return [
-            'company'    => ['required', 'min:2'],
+            'name'       => ['required', 'min:2'],
             'first_name' => ['required', 'min:2'],
             'last_name'  => ['required', 'min:2']
         ];

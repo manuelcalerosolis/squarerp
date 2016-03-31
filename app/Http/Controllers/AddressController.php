@@ -66,7 +66,6 @@ class AddressController extends Controller
         }
 
         return response()->json(['status'=>'ok','data'=>$address],200);
-
     }
 
     /**
@@ -75,11 +74,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Entity $entity)
     {
         $address = Address::findOrFail($id);
 
-        return view('address.edit', ['address' => $address]);
+        return view('address.edit', ['address' => $address], ['entity' => $entity]);
     }
 
     /**
@@ -89,13 +88,14 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Update $request, $id)
+    public function update(Update $request, $id, Entity $entity)
     {
+
         $address = Address::findOrFail($id);
 
         $address->update($request->all());
 
-        return Redirect::to('address');
+        return redirect()->route('entity.edit', [$entity->id]);
     }
 
     /**
@@ -104,10 +104,10 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Entity $entity)
     {
         Address::destroy($id);
 
-        return Redirect::to('address');
+        return redirect()->route('entity.edit', [$entity->id]);
     }
 }

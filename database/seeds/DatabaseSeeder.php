@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'alberto@gestool.es',
             'password' => bcrypt('admin')
         ]);
+
         factory(App\Models\User::class, recordsNumber)->create();
 
         DB::table('entities')->truncate();
@@ -33,6 +34,17 @@ class DatabaseSeeder extends Seeder
 
         DB::table('addresses')->truncate();
         factory(App\Models\Address::class, recordsNumber)->create();
+
+        DB::table('Roles')->truncate();
+        factory(App\Models\Rol::class)->create([
+            'name' => 'client'
+        ]);
+        factory(App\Models\Rol::class)->create([
+            'name' => 'provider'
+        ]);
+        factory(App\Models\Rol::class)->create([
+            'name' => 'agent'
+        ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

@@ -18,8 +18,6 @@ class UserTest extends TestCase
         ];
         $this->post('/user', $data)
             ->seeStatusCode(302);
-//        $this->post('/user', $data)
-//            ->seeStatusCode(302);
     }
 
     public function testUserCreate()
@@ -32,7 +30,7 @@ class UserTest extends TestCase
         ];
 
         $this->post('/user', $data)
-            ->seeStatusCode(200);
+            ->seeInDatabase('users', ['email' => 'joe@doe.com']);
     }
 
 }

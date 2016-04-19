@@ -29,3 +29,9 @@ $factory->define(App\Models\Address::class, function(Faker\Generator $faker){
         'phone' => $faker->phoneNumber,
         'phone_mobile' => $faker->phoneNumber];
 });
+
+$factory->define(App\Models\Rol::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name
+    ];
+});

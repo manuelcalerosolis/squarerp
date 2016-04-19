@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
-use App\Models\Entity;
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
-use App\Http\Requests\Entity\Create;
-use App\Http\Requests\Entity\Update;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Rol\Create;
+use App\Http\Requests\Rol\Update;
 use Illuminate\Support\Facades\Redirect;
 
-class EntityController extends Controller
+class RolController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,7 @@ class EntityController extends Controller
      */
     public function index()
     {
-        return 'index';// view('entity.index');
+        return view('rol.index');
     }
 
     /**
@@ -29,7 +29,7 @@ class EntityController extends Controller
      */
     public function create()
     {
-        return view('entity.create');
+        return view('rol.create');
     }
 
     /**
@@ -38,11 +38,9 @@ class EntityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request)
+    public function store(Request $request)
     {
-        Entity::create($request->all());
-
-        return Redirect::to('entity');
+        //
     }
 
     /**
@@ -53,9 +51,7 @@ class EntityController extends Controller
      */
     public function show($id)
     {
-        $entity = Entity::findOrFail($id);
-
-        return view('entity.edit', ['entity' => $entity]);
+        //
     }
 
     /**
@@ -66,9 +62,7 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity = Entity::findOrFail($id);
-
-        return view('entity.edit', ['entity' => $entity]);
+        //
     }
 
     /**
@@ -78,13 +72,9 @@ class EntityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Update $request, $id)
+    public function update(Request $request, $id)
     {
-        $entity = Entity::findOrFail($id);
-
-        $entity->update($request->all());
-
-        return Redirect::to('entity');
+        //
     }
 
     /**
@@ -95,8 +85,6 @@ class EntityController extends Controller
      */
     public function destroy($id)
     {
-        Entity::destroy($id);
-
-        return Redirect::to('entity');
+        //
     }
 }

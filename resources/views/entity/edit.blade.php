@@ -12,20 +12,17 @@
     @include('entity.fields')
 
     <p>
-        <ul>
-        @foreach($entity->addresses as $address )
-            <li>
-                {!! Form::label('addresses', $address->name ) !!}
-                {!! link_to_route('entity.address.edit', trans('forms.update'), [$address->id, $entity]) !!}
-                {!! link_to_route('entity.address.destroy', trans('forms.delete'), [$address->id, $entity]) !!}
-            </li>
-        @endforeach
-        </ul>
-        {{--{!! Form::select('addresses', $entity->addresses->lists('name'), null, ['multiple' => 'multiple', 'name' => 'addresses[]'] ) !!}--}}
+        {!! link_to_route('entity.address.create', trans('forms.new_address'), [$entity]) !!}
     </p>
 
     <p>
-        {!! link_to_route('entity.address.create', trans('forms.new_address'), [$entity]) !!}
+        @foreach($entity->addresses as $address )
+            <p>
+                {!! Form::label('addresses', $address->name ) !!}
+                {!! link_to_route('entity.address.edit', trans('forms.update'), [$address->id, $entity]) !!}
+                {!! link_to_route('entity.address.destroy', trans('forms.delete'), [$address->id, $entity]) !!}
+            </p>
+        @endforeach
     </p>
 
     <p>

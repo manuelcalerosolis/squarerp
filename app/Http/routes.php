@@ -13,13 +13,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('user', 'UserController');
+
+Route::get('roles', ['uses' => 'RolController@index', 'as' => 'rol.index']);
+
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/home', function () {
         return view('/dashboard/home');
     });
-
-    Route::resource('user', 'UserController');
 
     Route::resource('entity', 'EntityController');
 
@@ -33,6 +35,9 @@ Route::group(['middleware' => 'auth'], function() {
         ['uses' => 'AddressController@edit', 'as' => 'entity.address.edit']);
     Route::get('entity/address/{address}/destroy/{entity}',
         ['uses' => 'AddressController@destroy', 'as' => 'entity.address.destroy']);
+
+    Route::resource('rol', 'RolController');
+
 });
 
 // demo de polymer

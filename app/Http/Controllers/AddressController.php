@@ -43,7 +43,7 @@ class AddressController extends Controller
      * @param Entity $entity
      * @return \Illuminate\Http\Response
      */
-    public function store(Create $request, Entity $entity )
+    public function store(Create $request, Entity $entity)
     {
         $entity->addresses()->create( $request->all() );
 
@@ -86,10 +86,10 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Entity $entity)
+    public function destroy($id, $id_entity)
     {
         Address::destroy($id);
 
-        return redirect()->route('entity.edit', [$entity->id]);
+        return redirect()->route('entity.edit', [$id_entity]);
     }
 }

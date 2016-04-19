@@ -29,6 +29,6 @@ return [
     'company' => 'Company',
     'address' => 'Address',
     'first_name' => 'First name',
-    'last_name' => 'Last name'
-
+    'last_name' => 'Last name',
+    'new_rol' => 'New rol',
 ];

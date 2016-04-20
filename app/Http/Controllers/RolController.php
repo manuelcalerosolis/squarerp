@@ -38,9 +38,11 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Create $request)
     {
-        //
+        Rol::create($request->all());
+
+        return Redirect::to('rol');
     }
 
     /**

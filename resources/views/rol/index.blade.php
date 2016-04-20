@@ -13,6 +13,8 @@
         <p>
         {!! $rol->name !!}
 
+        {!! link_to_route('rol.edit', $title = trans('forms.edit'), $parameters = $rol->id) !!}
+
         {!! Form::open( [ 'route' => ['rol.destroy', $rol->id], 'method' => 'DELETE'] ) !!}
             <button type="submit">{!! trans('forms.delete') !!}</button>
         {!! Form::close() !!}

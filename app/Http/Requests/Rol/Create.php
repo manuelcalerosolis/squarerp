@@ -24,7 +24,7 @@ class Create extends Request
     public function rules()
     {
         return [
-            'name'      => ['required', 'min:4']
+            'name'      => ['required', 'min:4', 'unique:roles']
         ];
     }
 }

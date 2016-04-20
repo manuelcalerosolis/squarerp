@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Redirect;
 
 class RolController extends Controller
 {
+
+    protected $rol;
+
+    public function __construct( Rol $rol)
+    {
+        $this->rol = $rol;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +48,7 @@ class RolController extends Controller
      */
     public function store(Create $request)
     {
-        Rol::create($request->all());
+        $this->rol->create($request->all());
 
         return Redirect::to('rol');
     }
@@ -53,7 +61,9 @@ class RolController extends Controller
      */
     public function show($id)
     {
-        //
+        $rol = $this->rol->findOrFail($id);
+
+        return view('rol.edit', ['rol' => $rol]);
     }
 
     /**
@@ -64,7 +74,9 @@ class RolController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rol = $this->rol->findOrFail($id);
+
+        return view('rol.edit', ['rol' => $rol]);
     }
 
     /**
@@ -76,7 +88,11 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = $this->rol->findOrFail($id);
+
+        $rol->update($request->all());
+
+        return Redirect::to('rol');
     }
 
     /**
@@ -87,6 +103,8 @@ class RolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->rol->destroy($id);
+
+        return Redirect::to('rol');
     }
 }

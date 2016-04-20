@@ -15,8 +15,6 @@ Route::get('/', function () {
 
 Route::resource('user', 'UserController');
 
-Route::get('roles', ['uses' => 'RolController@index', 'as' => 'rol.index']);
-
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/home', function () {

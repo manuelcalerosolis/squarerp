@@ -24,7 +24,7 @@ class Update extends Request
     public function rules()
     {
         return [
-            'name'      => ['required', 'min:4', 'unique:rol,name,'.$this->route('rol')],
+            'name'      => ['required', 'min:4', 'unique:roles,name,'.$this->route('rol')],
         ];
     }
 

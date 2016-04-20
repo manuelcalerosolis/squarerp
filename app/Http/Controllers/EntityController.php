@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Redirect;
 class EntityController extends Controller
 {
 
+    protected $entity;
+
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +26,7 @@ class EntityController extends Controller
      */
     public function index()
     {
-        return 'index';// view('entity.index');
+        return view('entity.index');
     }
 
     /**
@@ -40,7 +47,7 @@ class EntityController extends Controller
      */
     public function store(Create $request)
     {
-        Entity::create($request->all());
+        $this->entity->create($request->all());
 
         return Redirect::to('entity');
     }
@@ -53,7 +60,7 @@ class EntityController extends Controller
      */
     public function show($id)
     {
-        $entity = Entity::findOrFail($id);
+        $entity = $this->entity->findOrFail($id);
 
         return view('entity.edit', ['entity' => $entity]);
     }
@@ -66,7 +73,7 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity = Entity::findOrFail($id);
+        $entity = $this->entity->findOrFail($id);
 
         return view('entity.edit', ['entity' => $entity]);
     }
@@ -80,7 +87,7 @@ class EntityController extends Controller
      */
     public function update(Update $request, $id)
     {
-        $entity = Entity::findOrFail($id);
+        $entity = $this->entity->findOrFail($id);
 
         $entity->update($request->all());
 
@@ -95,7 +102,7 @@ class EntityController extends Controller
      */
     public function destroy($id)
     {
-        Entity::destroy($id);
+        $this->entity->destroy($id);
 
         return Redirect::to('entity');
     }

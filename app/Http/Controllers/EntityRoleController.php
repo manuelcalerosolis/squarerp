@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\Rol;
-use App\Http\Requests\Rol\Create;
-use App\Http\Requests\Rol\Update;
+use App\Models\Role;
+use App\Http\Requests\EntityRole\Create;
+use App\Http\Requests\EntityRole\Update;
 use Illuminate\Support\Facades\Redirect;
 
-class RolController extends Controller
+class EntityRoleController extends Controller
 {
 
-    protected $rol;
+    protected $entityRole;
 
-    public function __construct( Rol $rol)
+    public function __construct(EntityRole $entityRole)
     {
-        $this->rol = $rol;
+        $this->entityRole = $entityRole;
     }
 
     /**
@@ -27,7 +27,7 @@ class RolController extends Controller
      */
     public function index()
     {
-        return view('rol.index');
+        return view('entity_role.index');
     }
 
     /**
@@ -37,7 +37,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        return view('rol.create');
+        return view('entity_role.create');
     }
 
     /**
@@ -48,9 +48,9 @@ class RolController extends Controller
      */
     public function store(Create $request)
     {
-        $this->rol->create($request->all());
+        $this->entityRole->create($request->all());
 
-        return Redirect::to('rol');
+        return Redirect::to('entity');
     }
 
     /**
@@ -61,9 +61,9 @@ class RolController extends Controller
      */
     public function show($id)
     {
-        $rol = $this->rol->findOrFail($id);
+        $rol = $this->entityRole->findOrFail($id);
 
-        return view('rol.edit', ['rol' => $rol]);
+        return view('entityrole.edit', ['entityRole' => $entityRole]);
     }
 
     /**
@@ -74,9 +74,9 @@ class RolController extends Controller
      */
     public function edit($id)
     {
-        $rol = $this->rol->findOrFail($id);
+        $entityRole = $this->entityRole->findOrFail($id);
 
-        return view('rol.edit', ['rol' => $rol]);
+        return view('entityrole.edit', ['entityRole' => $entityRole]);
     }
 
     /**
@@ -88,11 +88,11 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rol = $this->rol->findOrFail($id);
+        $entityRole = $this->entityRole->findOrFail($id);
 
-        $rol->update($request->all());
+        $entityRole->update($request->all());
 
-        return Redirect::to('rol');
+        return Redirect::to('entity');
     }
 
     /**

@@ -7,9 +7,9 @@
 
     @include('partials.errors')
 
-    {!! Form::open( ['route' => [ 'rol.update', $rol->id ], 'method' => 'put' ] ) !!}
+    {!! Form::open( ['route' => [ 'entity_role.update', $rol->id ], 'method' => 'put' ] ) !!}
 
-    @include('rol.fields')
+    @include('entity_role.fields')
 
     <p>
         {!! Form::submit(trans('forms.update')) !!}

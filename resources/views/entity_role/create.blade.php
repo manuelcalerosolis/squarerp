@@ -7,9 +7,9 @@
 
         @include('partials.errors')
 
-        {!! Form::open( ['route' => 'rol.store', 'method' => 'post'] ) !!}
+        {!! Form::open( ['route' => 'entity_role.store', 'method' => 'post'] ) !!}
 
-        @include('rol.fields')
+        @include('entity_role.fields')
 
         <p>
             {!! Form::submit(trans('forms.new')) !!}

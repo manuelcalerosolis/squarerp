@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('entity/address/{address}/destroy/{entity}',
         ['uses' => 'AddressController@destroy', 'as' => 'entity.address.destroy']);
 
-    Route::resource('rol', 'RolController');
+    Route::resource('entityRole', 'EntityRoleController');
 
 });
 

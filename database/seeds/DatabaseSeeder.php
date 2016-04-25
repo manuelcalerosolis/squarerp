@@ -35,14 +35,14 @@ class DatabaseSeeder extends Seeder
         DB::table('addresses')->truncate();
         factory(App\Models\Address::class, recordsNumber)->create();
 
-        DB::table('Roles')->truncate();
-        factory(App\Models\Rol::class)->create([
+        DB::table('entities_roles')->truncate();
+        factory(App\Models\EntityRole::class)->create([
             'name' => 'client'
         ]);
-        factory(App\Models\Rol::class)->create([
+        factory(App\Models\EntityRole::class)->create([
             'name' => 'provider'
         ]);
-        factory(App\Models\Rol::class)->create([
+        factory(App\Models\EntityRole::class)->create([
             'name' => 'agent'
         ]);
 

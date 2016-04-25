@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\Role;
+use App\Models\EntityRole;
 use App\Http\Requests\EntityRole\Create;
 use App\Http\Requests\EntityRole\Update;
 use Illuminate\Support\Facades\Redirect;
@@ -27,7 +27,9 @@ class EntityRoleController extends Controller
      */
     public function index()
     {
-        return view('entity_role.index');
+        $entitiesRoles = $this->entityRole->all();
+
+        return view('entity_role.index', ['entitiesRoles' => $entitiesRoles]);
     }
 
     /**
@@ -50,7 +52,7 @@ class EntityRoleController extends Controller
     {
         $this->entityRole->create($request->all());
 
-        return Redirect::to('entity');
+        return Redirect::to('entityRole');
     }
 
     /**
@@ -61,9 +63,9 @@ class EntityRoleController extends Controller
      */
     public function show($id)
     {
-        $rol = $this->entityRole->findOrFail($id);
+        $entityRole = $this->entityRole->findOrFail($id);
 
-        return view('entityrole.edit', ['entityRole' => $entityRole]);
+        return view('entity_role.edit', ['entityRole' => $entityRole]);
     }
 
     /**
@@ -76,7 +78,7 @@ class EntityRoleController extends Controller
     {
         $entityRole = $this->entityRole->findOrFail($id);
 
-        return view('entityrole.edit', ['entityRole' => $entityRole]);
+        return view('entity_role.edit', ['entityRole' => $entityRole]);
     }
 
     /**
@@ -92,7 +94,7 @@ class EntityRoleController extends Controller
 
         $entityRole->update($request->all());
 
-        return Redirect::to('entity');
+        return Redirect::to('entityRole');
     }
 
     /**
@@ -103,8 +105,8 @@ class EntityRoleController extends Controller
      */
     public function destroy($id)
     {
-        $this->rol->destroy($id);
+        $this->entityRole->destroy($id);
 
-        return Redirect::to('rol');
+        return Redirect::to('entityRole');
     }
 }

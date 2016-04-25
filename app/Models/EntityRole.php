@@ -5,7 +5,7 @@ namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Rol extends Model
+class EntityRole extends Model
 {
     use SoftDeletes;
 
@@ -14,7 +14,7 @@ class Rol extends Model
      *
      * @var string
      */
-    protected $table = 'roles';
+    protected $table = 'entities_roles';
 
     /**
      * The attributes that are mass assignable.

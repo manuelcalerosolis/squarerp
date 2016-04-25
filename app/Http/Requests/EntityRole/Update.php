@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Rol;
+namespace App\Http\Requests\EntityRole;
 
 use App\Http\Requests\Request;
 

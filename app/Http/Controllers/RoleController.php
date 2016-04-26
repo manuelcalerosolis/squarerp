@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\EntityRole;
-use App\Http\Requests\EntityRole\Create;
-use App\Http\Requests\EntityRole\Update;
+use App\Models\Role;
+use App\Http\Requests\Role\Create;
+use App\Http\Requests\Role\Update;
 use Illuminate\Support\Facades\Redirect;
 
-class EntityRoleController extends Controller
+class RoleController extends Controller
 {
 
-    protected $entityRole;
+    protected $role;
 
-    public function __construct(EntityRole $entityRole)
+    public function __construct(Role $role)
     {
-        $this->entityRole = $entityRole;
+        $this->role = $role;
     }
 
     /**
@@ -27,9 +27,9 @@ class EntityRoleController extends Controller
      */
     public function index()
     {
-        $entitiesRoles = $this->entityRole->all();
+        $roles = $this->role->all();
 
-        return view('entity_role.index', ['entitiesRoles' => $entitiesRoles]);
+        return view('role.index', ['roles' => $roles]);
     }
 
     /**
@@ -39,7 +39,7 @@ class EntityRoleController extends Controller
      */
     public function create()
     {
-        return view('entity_role.create');
+        return view('role.create');
     }
 
     /**
@@ -50,9 +50,9 @@ class EntityRoleController extends Controller
      */
     public function store(Create $request)
     {
-        $this->entityRole->create($request->all());
+        $this->role->create($request->all());
 
-        return Redirect::to('entityRole');
+        return Redirect::to('role');
     }
 
     /**
@@ -63,9 +63,9 @@ class EntityRoleController extends Controller
      */
     public function show($id)
     {
-        $entityRole = $this->entityRole->findOrFail($id);
+        $role = $this->role->findOrFail($id);
 
-        return view('entity_role.edit', ['entityRole' => $entityRole]);
+        return view('role.edit', ['role' => $role]);
     }
 
     /**
@@ -76,9 +76,9 @@ class EntityRoleController extends Controller
      */
     public function edit($id)
     {
-        $entityRole = $this->entityRole->findOrFail($id);
+        $role = $this->role->findOrFail($id);
 
-        return view('entity_role.edit', ['entityRole' => $entityRole]);
+        return view('role.edit', ['role' => $role]);
     }
 
     /**
@@ -90,11 +90,11 @@ class EntityRoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entityRole = $this->entityRole->findOrFail($id);
+        $role = $this->role->findOrFail($id);
 
-        $entityRole->update($request->all());
+        $role->update($request->all());
 
-        return Redirect::to('entityRole');
+        return Redirect::to('role');
     }
 
     /**
@@ -105,8 +105,8 @@ class EntityRoleController extends Controller
      */
     public function destroy($id)
     {
-        $this->entityRole->destroy($id);
+        $this->role->destroy($id);
 
-        return Redirect::to('entityRole');
+        return Redirect::to('role');
     }
 }

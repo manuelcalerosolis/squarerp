@@ -30,7 +30,7 @@ $factory->define(App\Models\Address::class, function(Faker\Generator $faker){
         'phone_mobile' => $faker->phoneNumber];
 });
 
-$factory->define(App\Models\EntityRole::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Role::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name
     ];

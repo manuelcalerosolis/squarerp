@@ -1,25 +1,27 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Address
+ * @package App\Models
+ */
 class EntityRole extends Model
 {
-    use SoftDeletes;
-
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'entities_roles';
+    protected $table = 'EntityRole';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name'];
-}
+    protected $fillable = ['entity_id', 'role_id'];
+
+ }

@@ -27,4 +27,9 @@ class Entity extends Model
         return $this->hasMany('App\Models\Address');
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
+    }
+
 }

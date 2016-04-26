@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\EntityRole;
+namespace App\Http\Requests\Role;
 
 use App\Http\Requests\Request;
 
-class Update extends Request
+class Create extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class Update extends Request
     public function rules()
     {
         return [
-            'name'      => ['required', 'min:4', 'unique:roles,name,'.$this->route('rol')],
+            'name'      => ['required', 'min:4', 'unique:roles']
         ];
     }
-
 }

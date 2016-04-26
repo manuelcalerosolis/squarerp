@@ -30,5 +30,5 @@ return [
     'address' => 'Dirección',
     'first_name' => 'Nombre',
     'last_name' => 'Apellidos',
-    'new_rol' => 'Nuevo rol',
+    'new_role' => 'Nuevo rol',
 ];

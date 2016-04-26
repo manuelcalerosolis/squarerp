@@ -14,6 +14,7 @@ return array(
     'CreateUsersProfileTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_users_profile_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'EntitiesRoles' => $baseDir . '/database/migrations/2016_04_26_180019_entities_roles.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',

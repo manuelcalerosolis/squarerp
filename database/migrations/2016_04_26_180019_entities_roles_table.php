@@ -28,6 +28,8 @@ class EntitiesRoles extends Migration
                 ->references('id')
                 ->on('roles');
 
+            $table->unique(['id', 'entity_id', 'role_id']);
+
         });
         //
     }

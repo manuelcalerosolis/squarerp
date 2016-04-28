@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EntityRole;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,9 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class RoleController extends Controller
 {
-
     protected $role;
-    protected $entity_role;
 
     public function __construct(Role $role)
     {

@@ -80,8 +80,6 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity_role = Role::lists('role_id','name');
-
         $entity = $this->entity->findOrFail($id);
 
         return view('entity.edit', ['entity' => $entity]);

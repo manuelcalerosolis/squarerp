@@ -11,6 +11,13 @@
 
         @include('entity.fields')
 
+        @foreach($rolelist as $role )
+            <p>
+                {!! Form::checkbox('id'.$role, $role) !!}
+                {!! Form::label('name', $role->name) !!}
+
+            </p>
+        @endforeach
         <p>
             {!! Form::submit(trans('forms.new')) !!}
         </p>

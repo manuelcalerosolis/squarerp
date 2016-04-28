@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EntitiesRoles extends Migration
+class CreateEntitiesRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,6 @@ class EntitiesRoles extends Migration
     {
         Schema::create('entities_roles', function (Blueprint $table)
         {
-            $table->increments('id');
             $table->integer('entity_id')->unsigned()->index();
             $table->integer('role_id')->unsigned()->index();
             $table->softDeletes();
@@ -22,13 +21,15 @@ class EntitiesRoles extends Migration
 
             $table->foreign('entity_id')
                 ->references('id')
-                ->on('entities');
+                ->on('entities')
+                ->onDelete('cascade');
 
             $table->foreign('role_id')
                 ->references('id')
-                ->on('roles');
+                ->on('roles')
+                ->onDelete('cascade');
 
-            $table->unique(['id', 'entity_id', 'role_id']);
+            $table->unique(['entity_id', 'role_id']);
 
         });
         //

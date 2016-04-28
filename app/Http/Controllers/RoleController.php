@@ -14,6 +14,7 @@ class RoleController extends Controller
 {
 
     protected $role;
+    protected $entity_role;
 
     public function __construct(Role $role)
     {

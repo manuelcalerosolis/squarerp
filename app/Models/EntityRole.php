@@ -15,7 +15,7 @@ class EntityRole extends Model
      *
      * @var string
      */
-    protected $table = 'EntityRole';
+    protected $table = 'entities_roles';
 
     /**
      * The attributes that are mass assignable.

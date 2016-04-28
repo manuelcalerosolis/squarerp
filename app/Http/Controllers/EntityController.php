@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use App\Models\Entity;
+use App\Models\Role;
 use App\Http\Requests;
 use App\Http\Requests\Entity\Create;
 use App\Http\Requests\Entity\Update;
@@ -13,10 +14,12 @@ class EntityController extends Controller
 {
 
     protected $entity;
+    protected $role;
 
-    public function __construct(Entity $entity)
+    public function __construct(Entity $entity, Role $role)
     {
-        $this->entity = $entity;
+        $this->entity   = $entity;
+        $this->role     = $role;
     }
 
     /**
@@ -36,7 +39,9 @@ class EntityController extends Controller
      */
     public function create()
     {
-        return view('entity.create');
+        $rolelist = $this->role->all();
+
+        return view('entity.create' , ['rolelist' => $rolelist]);
     }
 
     /**
@@ -47,6 +52,8 @@ class EntityController extends Controller
      */
     public function store(Create $request)
     {
+        dd($request);
+
         $this->entity->create($request->all());
 
         return Redirect::to('entity');
@@ -73,6 +80,8 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
+        $entity_role = Role::lists('role_id','name');
+
         $entity = $this->entity->findOrFail($id);
 
         return view('entity.edit', ['entity' => $entity]);

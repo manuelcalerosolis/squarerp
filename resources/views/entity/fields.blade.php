@@ -13,3 +13,8 @@
         {!! Form::text('last_name', ( isset( $entity ) ? $entity->last_name : null ) ) !!}
     </p>
 
+    <p>
+        {!! Form::label('roles', trans('forms.roles') ) !!}
+        {!! Form::select('roles', ( isset( $roleList ) ? $roleList : [''] ), null, ['multiple'] ) !!}
+    </p>
+

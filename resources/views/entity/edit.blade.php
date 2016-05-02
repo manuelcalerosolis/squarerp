@@ -23,12 +23,6 @@
                 {!! link_to_route('entity.address.destroy', trans('forms.delete'), [$address->id, $entity]) !!}
             </p>
         @endforeach
-
-            <p>
-                {!! Form::label('role_id', 'Selecciona un rol') !!}
-                {!! Form::select('role_id',$role) !!}
-            </p>
-
     </p>
 
     <p>

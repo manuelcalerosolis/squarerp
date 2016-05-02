@@ -39,9 +39,9 @@ class EntityController extends Controller
      */
     public function create()
     {
-        $rolelist = $this->role->all();
+        $roleList = $this->role->lists('name');
 
-        return view('entity.create' , ['rolelist' => $rolelist]);
+        return view('entity.create' , ['roleList' => $roleList]);
     }
 
     /**
@@ -80,9 +80,10 @@ class EntityController extends Controller
      */
     public function edit($id)
     {
-        $entity = $this->entity->findOrFail($id);
+        $entity     = $this->entity->findOrFail($id);
+        $roleList   = $this->role->lists('name');
 
-        return view('entity.edit', ['entity' => $entity]);
+        return view('entity.edit', ['entity' => $entity, 'roleList' => $roleList]);
     }
 
     /**

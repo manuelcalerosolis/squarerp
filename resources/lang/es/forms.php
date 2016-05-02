@@ -31,4 +31,5 @@ return [
     'first_name' => 'Nombre',
     'last_name' => 'Apellidos',
     'new_role' => 'Nuevo rol',
+    'roles' => 'Roles',
 ];

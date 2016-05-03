@@ -14,7 +14,7 @@
     </p>
 
     <p>
-        {!! Form::label('roles', trans('forms.roles') ) !!}
-        {!! Form::select('roles', ( isset( $roleList ) ? $roleList : [''] ), null, ['multiple'] ) !!}
+        {!! Form::label('role_list', trans('forms.roles') ) !!}
+        {!! Form::select('role_list[]', ( isset( $roles ) ? $roles : [''] ), null, ['multiple'] ) !!}
     </p>
 

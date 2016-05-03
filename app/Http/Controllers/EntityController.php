@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
 use App\Models\Entity;
 use App\Models\Role;
 use App\Http\Requests;
@@ -39,9 +38,9 @@ class EntityController extends Controller
      */
     public function create()
     {
-        $roleList = $this->role->lists('name');
+        $roles  = $this->role->lists('name', 'id');
 
-        return view('entity.create' , ['roleList' => $roleList]);
+        return view('entity.create', compact('roles'));
     }
 
     /**
@@ -52,7 +51,7 @@ class EntityController extends Controller
      */
     public function store(Create $request)
     {
-        dd($request);
+        dd( $request->input('roles'));
 
         $this->entity->create($request->all());
 
@@ -69,7 +68,7 @@ class EntityController extends Controller
     {
         $entity = $this->entity->findOrFail($id);
 
-        return view('entity.edit', ['entity' => $entity]);
+        return view('entity.edit', compact('entity'));
     }
 
     /**
@@ -81,9 +80,10 @@ class EntityController extends Controller
     public function edit($id)
     {
         $entity     = $this->entity->findOrFail($id);
-        $roleList   = $this->role->lists('name');
 
-        return view('entity.edit', ['entity' => $entity, 'roleList' => $roleList]);
+        $roles      = $this->role->lists('name', 'id');
+
+        return view('entity.edit', compact('entity', 'roles'));
     }
 
     /**
@@ -98,6 +98,8 @@ class EntityController extends Controller
         $entity = $this->entity->findOrFail($id);
 
         $entity->update($request->all());
+
+        $entity->roles()->sync( $request->input('role_list') );
 
         return Redirect::to('entity');
     }

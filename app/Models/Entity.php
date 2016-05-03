@@ -27,9 +27,22 @@ class Entity extends Model
         return $this->hasMany('App\Models\Address');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role')->withTimestamps();
+    }
+
+    /**
+     * get list of roles id associate to an entity
+     *
+     * @return array
+     */
+    public function getRoleListAttribute()
+    {
+        return $this->roles->list('id');
     }
 
 }

@@ -40,7 +40,7 @@ class EntityController extends Controller
     {
         $roles  = $this->role->lists('name', 'id');
 
-        return view('entity.create', compact('roles'));
+        return view('entity.create', ['roles' => $roles]);
     }
 
     /**
@@ -51,9 +51,9 @@ class EntityController extends Controller
      */
     public function store(Create $request)
     {
-        dd( $request->input('roles'));
+        $entity = $this->entity->create($request->all());
 
-        $this->entity->create($request->all());
+        $entity->roles()->attach( $request->input('role_list') );
 
         return Redirect::to('entity');
     }
@@ -61,42 +61,38 @@ class EntityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Entity  $entity
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Entity $entity)
     {
-        $entity = $this->entity->findOrFail($id);
-
-        return view('entity.edit', compact('entity'));
+        return view('entity.edit', ['entity' => $entity]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Entity  $entity
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Entity $entity)
     {
-        $entity     = $this->entity->findOrFail($id);
+        $roles  = $this->role->lists('name', 'id');
 
-        $roles      = $this->role->lists('name', 'id');
+        dd($entity->getRoleListAttribute() );
 
-        return view('entity.edit', compact('entity', 'roles'));
+        return view('entity.edit', ['entity' => $entity, 'roles' => $roles]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Entity  $entity
      * @return \Illuminate\Http\Response
      */
-    public function update(Update $request, $id)
+    public function update(Update $request, Entity $entity)
     {
-        $entity = $this->entity->findOrFail($id);
-
         $entity->update($request->all());
 
         $entity->roles()->sync( $request->input('role_list') );

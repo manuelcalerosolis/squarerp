@@ -79,8 +79,6 @@ class EntityController extends Controller
     {
         $roles  = $this->role->lists('name', 'id');
 
-        dd($entity->getRoleListAttribute() );
-
         return view('entity.edit', ['entity' => $entity, 'roles' => $roles]);
     }
 

@@ -42,7 +42,7 @@ class Entity extends Model
      */
     public function getRoleListAttribute()
     {
-        return $this->roles->list('id');
+        return $this->roles->lists('id')->all();
     }
 
 }

@@ -15,7 +15,7 @@
 
     <p>
         {!! Form::label('role_list', trans('forms.roles') ) !!}
-        {!! Form::select('role_list[]', ( isset( $roles ) ? $roles : [''] ), 'role_list[]', ['multiple'] ) !!}
+        {!! Form::select('role_list[]', ( isset( $roles ) ? $roles : [''] ), ( isset($entity) ? $entity->getRoleListAttribute() : null ), ['multiple'] ) !!}
     </p>
 
 

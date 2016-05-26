@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Models\EntityRole;
 
 define('recordsNumber', 50);
 
@@ -45,6 +46,19 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Role::class)->create([
             'name' => 'agent'
         ]);
+
+        DB::table('langs')->truncate();
+        factory(App\Models\Lang::class)->create([
+            'name' => 'Español (Spanish)',
+            'iso_code' => 'es',
+            'language_code' => 'es-es'
+        ]);
+
+        DB::table('products')->truncate();
+        factory(App\Models\Product::class, recordsNumber)->create();
+
+        DB::table('products_langs')->truncate();
+        factory(App\Models\ProductLang::class, recordsNumber)->create();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

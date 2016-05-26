@@ -63,5 +63,5 @@ $factory->define(App\Models\ProductLang::class, function (Faker\Generator $faker
         'description_short' => $faker->text,
         'description_meta' => $faker->text,
         'keywords_meta' => $faker->text,
-        'title_meta' => $faker->text ];
+        'title_meta' => $faker->text];
 });

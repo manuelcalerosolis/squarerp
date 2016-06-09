@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('role', 'RoleController');
 
+    Route::resource('product', 'ProductController');
 
 });
 

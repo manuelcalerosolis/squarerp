@@ -51,6 +51,8 @@ class EntityController extends Controller
      */
     public function store(Create $request)
     {
+        dd($request->all());
+
         $entity = $this->entity->create($request->all());
 
         $entity->roles()->attach( $request->input('role_list') );

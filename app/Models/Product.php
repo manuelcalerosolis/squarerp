@@ -18,4 +18,10 @@ class Product extends Model
      * @var array
      */
     protected $fillable = ['ean13', 'upc', 'price', 'width', 'height', 'depth', 'weight'];
+
+    public function productsLangs()
+    {
+        return $this->hasMany('App\Models\ProductLang');
+    }
+
 }

@@ -18,4 +18,10 @@ class ProductLang extends Model
      * @var array
      */
     protected $fillable = ['name', 'description', 'description_short', 'description_meta', 'keywords_meta', 'title_meta'];
+
+    public function products()
+    {
+        return $this->belongsTo('App\Models\ProductLang');
+    }
+
 }

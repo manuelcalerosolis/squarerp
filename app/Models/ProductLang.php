@@ -21,7 +21,7 @@ class ProductLang extends Model
 
     public function products()
     {
-        return $this->belongsTo('App\Models\ProductLang');
+        return $this->belongsTo('App\Models\Product');
     }
 
 }

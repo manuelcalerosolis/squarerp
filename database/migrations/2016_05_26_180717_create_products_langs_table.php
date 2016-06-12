@@ -14,6 +14,7 @@ class CreateProductsLangsTable extends Migration
     {
         Schema::create('products_langs', function (Blueprint $table) {
 
+            $table->increments('id');
             $table->integer('product_id')->unsigned()->index();
             $table->integer('lang_id')->unsigned()->index();
             $table->longText('name');

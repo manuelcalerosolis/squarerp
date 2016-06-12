@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\ProductLang;
+use App\Models\Lang;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\Product\Create;
-use App\Http\Requests\Product\Update;
+use App\Http\Requests\Lang\Create;
+use App\Http\Requests\Lang\Update;
 use Illuminate\Support\Facades\Redirect;
 
-class ProductController extends Controller
+class LangController extends Controller
 {
-    protected $product;
-    protected $productLang;
+    protected $lang;
 
-    public function __construct(Product $product, ProductLang $productLang)
+    public function __construct(Lang $lang)
     {
-        $this->product = $product;
-        $this->productLang = $productLang;
+        $this->lang = $lang;
     }
 
     /**
@@ -29,9 +26,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->product->all();
+        $langs = $this->lang->all();
 
-        return view('product.index', ['products' => $products]);
+        return view('lang.index', ['langs' => $langs]);
     }
 
     /**
@@ -41,7 +38,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        return view('lang.create');
     }
 
     /**
@@ -52,9 +49,9 @@ class ProductController extends Controller
      */
     public function store(Create $request)
     {
-        $this->product->create($request->all());
+        $this->lang->create($request->all());
 
-        return Redirect::to('product');
+        return Redirect::to('lang');
     }
 
     /**
@@ -65,9 +62,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = $this->product->findOrFail($id);
+        $lang = $this->lang->findOrFail($id);
 
-        return view('product.edit', ['product' => $product]);
+        return view('lang.edit', ['lang' => $lang]);
     }
 
     /**
@@ -78,9 +75,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = $this->product->findOrFail($id);
+        $lang = $this->lang->findOrFail($id);
 
-        return view('product.edit', ['product' => $product]);
+        return view('lang.edit', ['lang' => $lang]);
     }
 
     /**
@@ -92,11 +89,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = $this->product->findOrFail($id);
+        $lang = $this->lang->findOrFail($id);
 
-        $product->update($request->all());
+        $lang->update($request->all());
 
-        return Redirect::to('product');
+        return Redirect::to('lang');
     }
 
     /**
@@ -107,8 +104,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $this->product->destroy($id);
+        $this->lang->destroy($id);
 
-        return Redirect::to('product');
+        return Redirect::to('lang');
     }
 }

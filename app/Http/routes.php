@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('product', 'ProductController');
 
+    Route::resource('lang', 'LangController');
+
 });
 
 // demo de polymer

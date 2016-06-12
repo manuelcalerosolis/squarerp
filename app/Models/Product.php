@@ -19,9 +19,14 @@ class Product extends Model
      */
     protected $fillable = ['ean13', 'upc', 'price', 'width', 'height', 'depth', 'weight'];
 
-    public function productsLangs()
+    public function productsLang()
     {
-        return $this->hasMany('App\Models\ProductLang');
+//        if ($idLang == null)
+//        {
+//            $idLang = 1;
+//        }
+
+        return $this->hasMany('App\Models\ProductLang')->where('lang_id', '=', 1);
     }
 
 }

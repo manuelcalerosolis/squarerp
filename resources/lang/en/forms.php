@@ -32,4 +32,8 @@ return [
     'last_name' => 'Last name',
     'new_role' => 'New role',
     'roles' => 'Roles',
+    'lang_name' => 'Language',
+    'iso_code' => 'Iso code',
+    'language_code' => 'Language code',
+
 ];

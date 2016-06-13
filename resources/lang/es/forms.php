@@ -32,4 +32,7 @@ return [
     'last_name' => 'Apellidos',
     'new_role' => 'Nuevo rol',
     'roles' => 'Roles',
+    'lang_name' => 'Lenguaje',
+    'iso_code' => 'Código iso',
+    'language_code' => 'Código lenguaje',
 ];

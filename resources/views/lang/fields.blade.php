@@ -1,5 +1,5 @@
     <p>
-        {!! Form::label('name', trans('forms.name') ) !!}
+        {!! Form::label('name', trans('forms.lang_name') ) !!}
         {!! Form::text('name', ( isset( $lang ) ? $lang->name : null ) ) !!}
     </p>
 

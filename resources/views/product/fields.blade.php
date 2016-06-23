@@ -9,8 +9,13 @@
     </p>
 
     <p>
+        {!! Form::label('name', trans('forms.product_name') ) !!}
+        {!! Form::text('name', ( isset( $product ) ? $product->name : null ) ) !!}
+    </p>
+
+    <p>
         {!! Form::label('price', trans('forms.price') ) !!}
-        {!! Form::number('price', ( isset( $product ) ? $product->price : null ) ) !!}
+        {!! Form::number('price', ( isset( $product ) ? $product->price : null ), ['step' => 'any'] ) !!}
     </p>
 
 

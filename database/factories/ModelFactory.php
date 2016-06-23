@@ -47,6 +47,7 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
         'ean13' => $faker->ean13,
         'upc' => $faker->ean8,
+        'name' => $faker->name,
         'price' => $faker->randomFloat(6,3),
         'width' => $faker->randomNumber(2),
         'height' => $faker->randomNumber(2),

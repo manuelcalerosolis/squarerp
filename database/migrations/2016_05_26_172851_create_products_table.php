@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('ean13',13)->nullable();
             $table->string('upc',12)->nullable();
+            $table->string('name',200)->nullable();
             $table->decimal('price',20,6);
             $table->decimal('width',20,6);
             $table->decimal('height',20,6);

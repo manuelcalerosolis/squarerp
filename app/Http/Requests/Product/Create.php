@@ -24,7 +24,8 @@ class Create extends Request
     public function rules()
     {
         return [
-            'ean13'      => ['required', 'min:12', 'unique:products']
+            'ean13'     => ['required', 'min:12', 'unique:products'],
+            'price'     => ['required', 'numeric', 'min:-9999999.999999', 'max:999999.999999']
         ];
     }
 }

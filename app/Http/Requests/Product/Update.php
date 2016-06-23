@@ -24,7 +24,8 @@ class Update extends Request
     public function rules()
     {
         return [
-            'ean13'      => ['required', 'min:12', 'unique:products,name,'.$this->route('product')],
+            'ean13'     => ['required', 'min:12', 'unique:products,name,'.$this->route('product')],
+            'price'     => ['required', 'numeric', 'min:-9999999.999999', 'max:999999.999999']
         ];
     }
 
